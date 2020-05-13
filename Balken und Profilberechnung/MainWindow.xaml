@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="btn_ende" Content="Ende" HorizontalAlignment="Left" Margin="707,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ende_Click"/>
+        <Button x:Name="btn_rechne" Content="Rechne" HorizontalAlignment="Left" Margin="377,389,0,0" VerticalAlignment="Top" Width="75"/>
+        <TreeView x:Name="trv_Auswahl" HorizontalAlignment="Left" Height="326" Margin="10,10,0,0" VerticalAlignment="Top" Width="128">
+            <TreeViewItem x:Name="trv_eckigekoerper" Header="Eckige Körper" >
+                <TreeViewItem x:Name="trv_rechteck" Header="Rechteck"/>
+            </TreeViewItem>
+            <TreeViewItem x:Name="trv_rundekoerper" Header="Runde Körper">
+                <TreeViewItem x:Name="trv_kreis" Header="Kreis">
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+        <Label x:Name="lbl_höhe" Content="Höhe h:" HorizontalAlignment="Left" Margin="287,201,0,0" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="txb_höhe" HorizontalAlignment="Left" Height="23" Margin="349,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="Txb_höhe_LostFocus" GotFocus="Txb_höhe_GotFocus" TextChanged="txb_höhe_TextChanged"/>
+        <Label x:Name="lbl_breite" Content="Breite b:" HorizontalAlignment="Left" Margin="287,257,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txb_breite" HorizontalAlignment="Left" Height="23" Margin="349,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="lbl_dicke" Content="Dicke l:" HorizontalAlignment="Left" Margin="526,201,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txb_Dicke" HorizontalAlignment="Left" Height="23" Margin="579,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="Txb_höhe_LostFocus"/>
+        <Label Content="Duchmesser d:" HorizontalAlignment="Left" Margin="526,257,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txb_durchmesser" HorizontalAlignment="Left" Height="23" Margin="619,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="Txb_höhe_LostFocus"/>
     </Grid>
 </Window>

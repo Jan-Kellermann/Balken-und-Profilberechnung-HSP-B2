@@ -24,5 +24,40 @@ namespace Balken_und_Profilberechnung
         {
             InitializeComponent();
         }
+
+        private void Btn_ende_Click(object sender, RoutedEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+        }
+
+        private void Txb_höhe_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            double zahl;
+
+            if (Double.TryParse(tb.Text, out zahl))
+            {
+                tb.Background = Brushes.Green;
+                tb.Foreground = Brushes.Black;
+                // alles gut
+            }
+            else
+            {
+                MessageBox.Show("Es dürfen nur positive Zahlen eingegeben werden!", "Fehler");
+                // Fehler
+            }
+        }
+
+        private void Txb_höhe_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Foreground = Brushes.Black;
+        }
+
+        private void txb_höhe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
