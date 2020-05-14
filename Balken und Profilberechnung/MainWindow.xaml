@@ -70,8 +70,8 @@
         <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" Margin="423,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
         <!--H für I und T-Profil-->
-        <Label x:Name="lblHöheITProfilH" Content="H =" HorizontalAlignment="Left" Margin="374,136,0,0" VerticalAlignment="Top" Height="31"/>
-        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" Margin="423,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblHöheITProfilH" Content="H =" HorizontalAlignment="Left" Margin="374,136,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
+        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" Margin="423,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
 
         <!--Textboxen zur Ausgabe-->
