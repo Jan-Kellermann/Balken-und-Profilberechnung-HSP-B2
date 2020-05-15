@@ -9,10 +9,10 @@
     <Grid>
 
 
-        <TreeView x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130">
-            <TreeViewItem x:Name="itmEVoll" Header="Vollprofile">
-                <TreeViewItem x:Name="itmRechteck" Header="Rechteckbalken"/>
-                <TreeViewItem x:Name="itmRund" Header="Rund"/>
+        <TreeView SelectedItemChanged="SelectionChanged" x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130">
+            <TreeViewItem x:Name="itmEVoll" Header="Vollprofile" >
+                <TreeViewItem x:Name="itmRechteck" Header="Rechteckbalken"  />
+                <TreeViewItem x:Name="itmRund" Header="Rund" IsSelected="False"/>
 
 
             </TreeViewItem>
@@ -42,32 +42,32 @@
         <!--Textboxen in mehrfacher Verwendung-->
 
         <!--b für Rechteck und Kasten-->
-        <Label x:Name="lblBreiteb" Content="b = " HorizontalAlignment="Left" Margin="158,176,0,0" VerticalAlignment="Top" Height="31"/>
+        <Label x:Name="lblBreiteb" Content="b = " HorizontalAlignment="Left" Margin="158,176,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
         <!--b1 für T un I-Profil-->
         <Label x:Name="lblBreiteb1" Content="b1 = " HorizontalAlignment="Left" Margin="158,176,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
         <!--d für Rohr und Kreis-->
         <Label x:Name="lblDurchmesserd" Content="d = " HorizontalAlignment="Left" Margin="158,176,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
-        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="222,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="222,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         <!--h für Kasten und Rechteck-->
-        <Label x:Name="lblHöheh" Content="h =" HorizontalAlignment="Left" Margin="158,216,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="lblHöheh" Content="h =" HorizontalAlignment="Left" Margin="158,216,0,0" VerticalAlignment="Top" Height="23" Visibility="Hidden"/>
         <!--b2 für I und T-Profil-->
         <Label x:Name="lblBreiteb2" Content="b2 =" HorizontalAlignment="Left" Margin="158,216,0,0" VerticalAlignment="Top" Height="23" Visibility="Hidden"/>
         <!--D für Rohr und Kreis-->
         <Label x:Name="lblDurchmesserD" Content="D =" HorizontalAlignment="Left" Margin="158,216,0,0" VerticalAlignment="Top" Height="23" Visibility="Hidden"/>
-        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="23" Margin="222,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="23" Margin="222,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         <!--B Kasten-->
-        <Label x:Name="lblBreiteB" Content="B =" HorizontalAlignment="Left" Margin="374,56,0,0" VerticalAlignment="Top" Height="31"/>
+        <Label x:Name="lblBreiteB" Content="B =" HorizontalAlignment="Left" Margin="374,56,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
         <!--h für T und I-Profil-->
         <Label x:Name="lblHöheTIProfilh" Content="h =" HorizontalAlignment="Left" Margin="374,56,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
-        <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="23" Margin="423,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="23" Margin="423,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         <!--H Kasten-->
-        <Label x:Name="lblHöheH" Content="H = " HorizontalAlignment="Left" Margin="374,96,0,0" VerticalAlignment="Top" Height="31"/>
+        <Label x:Name="lblHöheH" Content="H = " HorizontalAlignment="Left" Margin="374,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
         <!--B I und T-Profil-->
         <Label x:Name="lblBreiteITProfilB" Content="B = " HorizontalAlignment="Left" Margin="374,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
-        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" Margin="423,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" Margin="423,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         <!--H für I und T-Profil-->
         <Label x:Name="lblHöheITProfilH" Content="H =" HorizontalAlignment="Left" Margin="374,136,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
@@ -109,7 +109,7 @@
 
         <!--Buttons-->
 
-        <Button x:Name="btnEnde" Content="Beenden" HorizontalAlignment="Left" Margin="679,410,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
+        <Button x:Name="btnEnde" Content="Beenden" HorizontalAlignment="Left" Margin="679,410,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnEnde_Click"/>
         <Button x:Name="btnNochmal" Content="Nochmal!" HorizontalAlignment="Left" Margin="589,410,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
         <Button x:Name="btnRechne" Content="Rechne!" HorizontalAlignment="Left" Margin="499,410,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
 
@@ -121,7 +121,7 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="158,294,0,0" Stroke="Black" VerticalAlignment="Top" Width="601"/>
         <Label Content="Eingabe" HorizontalAlignment="Left" Height="30" Margin="158,11,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Label Content="Ergebniss" HorizontalAlignment="Left" Height="30" Margin="158,266,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
-        <Image x:Name="imFigur" HorizontalAlignment="Left" Height="155" Margin="575,44,0,0" VerticalAlignment="Top" Width="181" Source="Kasten.PNG"/>
+        <Image x:Name="imFigur" HorizontalAlignment="Left" Height="155" Margin="575,44,0,0" VerticalAlignment="Top" Width="181" />
 
 
 

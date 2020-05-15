@@ -100,5 +100,12 @@
   <ItemGroup>
     <Resource Include="Kasten.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="I-Profil.PNG" />
+    <Resource Include="Kreis.PNG" />
+    <Resource Include="Rechteck.PNG" />
+    <Resource Include="Rohr.PNG" />
+    <Resource Include="T-Profil.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
