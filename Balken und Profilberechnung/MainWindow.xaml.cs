@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
+
+
 namespace Balken_und_Profilberechnung
 {
     /// <summary>
@@ -250,6 +252,115 @@ namespace Balken_und_Profilberechnung
 
 
 
+
+        private void btnRechne_Click(object sender, RoutedEventArgs e)
+        {
+
+            //Testfall Rohr
+            string bezeichnung_case;
+            bezeichnung_case = "itmRohr";
+
+
+
+            switch (bezeichnung_case)
+            {
+
+                case "itmRechteck": //Rechteck
+                    break;
+
+
+                case "itmT_Profil":
+                    break;
+
+
+                case "itmVierkantrohr":
+                    break;
+
+
+                case "itmRund":
+                    break;
+
+
+                case "itmRohr": //Rohr
+
+                    string sDurchmesserEingabeAussen;
+                    string sDurchmesserEingabeInnen;
+                    string sLängeEingabeRohr;
+
+
+                    double dDurchmesserAussen;
+                    double dDurchmesserInnen;
+                    double dLängeRohr;
+
+                    double dVolumen;
+                    double dFlaeche;
+                    double dMasse;
+                    double dPreis;
+                    double dSchwerpunktX;
+                    double dSchwerpunktY;
+                    double dSchwerpunktZ;
+                    double dIX;
+                    double dIY;
+
+
+
+
+
+                    //Übergabe der Eingabevariablen in String Variablen
+                    sDurchmesserEingabeAussen = txt3.Text;
+                    sDurchmesserEingabeInnen = txt2.Text;
+                    sLängeEingabeRohr = txtLänge.Text;
+
+
+                    //Übergabe der String Variablen nach Double
+                    dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
+                    dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
+                    dLängeRohr = Convert.ToDouble(sLängeEingabeRohr);
+
+                    //Innendurchmesser kleiner?
+                    if (dDurchmesserInnen > dDurchmesserAussen)
+                    {
+                        MessageBox.Show("Der Innendurchmesser muss kleiner sein als der Außendurchmesser");
+                    }
+
+                    //Durchmesser korrekt
+                    else
+                    {
+                        // Berechnung in Double Variablen
+                        dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
+                        dVolumen = dFlaeche * dLängeRohr;
+                        dMasse = 1;
+                        dPreis = 1;
+                        dSchwerpunktX = dDurchmesserAussen / 2;
+                        dSchwerpunktY = dDurchmesserAussen / 2;
+                        dSchwerpunktZ = dLängeRohr / 2;
+                        dIX = IRohr(dDurchmesserAussen, dDurchmesserInnen);
+                        dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
+
+
+                        // Übergabe Double in String Variablen
+                        txtVolumen.Text = Convert.ToString(dVolumen);
+                        txtFlaeche.Text = Convert.ToString(dFlaeche);
+                        txtMasse.Text = Convert.ToString(dMasse);
+                        txtPreis.Text = Convert.ToString(dPreis);
+                        txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
+                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
+                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
+                        txtIX.Text = Convert.ToString(dIX);
+                        txtIY.Text = Convert.ToString(dIY);
+                    }
+                    break;
+
+
+
+
+                case "itmI_Profil":
+                    break;
+
+
+            }
+        }
+
         private void btnEnde_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult msgAntwort;
@@ -281,13 +392,13 @@ namespace Balken_und_Profilberechnung
             return I;
         }
 
-        //public static bool PrüfungZahl(string Eingabe)
-        //{
-        //    int i = 0;
-        //    bool result = int.TryParse(Eingabe, out i);
+        public static bool PrüfungZahl(string Eingabe)
+        {
+            int i = 0;
+            bool result = int.TryParse(Eingabe, out i);
 
-        //    return result;
-        //}
+            return result;
+        }
 
         public static double IKreis(double d)
         {
@@ -307,111 +418,6 @@ namespace Balken_und_Profilberechnung
             double I = Math.PI * (Math.Pow(D, 4) - Math.Pow(d, 4)) / 64;
             return I;
         }
-
-
-
-        private void btnRechne_Click(object sender, RoutedEventArgs e)
-        {
-
-            int caseSwitch;
-
-            caseSwitch = 5;
-            switch (caseSwitch)
-            {
-
-                case 1: //Rechteck
-                    break;
-
-
-                case 2:
-                    break;
-
-
-                case 3:
-                    break;
-
-
-                case 4:
-                    break;
-
-
-                case 5: //Rohr
-
-                    string sDurchmesserEingabeAussen;
-                    string sDurchmesserEingabeInnen;
-                    string sLängeEingabeRohr;
-
-
-                    double dDurchmesserAussen;
-                    double dDurchmesserInnen;
-                    double dLängeRohr;
-
-                    double dVolumen;
-                    double dFlaeche;
-                    double dMasse;
-                    double dPreis;
-                    double dSchwerpunktX;
-                    double dSchwerpunktY;
-                    double dSchwerpunktZ;
-                    double dIX;
-                    double dIY;
-
-
-
-                    //Übergabe der Eingabevariablen in String Variablen
-                    sDurchmesserEingabeAussen = txt3.Text;
-                    sDurchmesserEingabeInnen = txt2.Text;
-                    sLängeEingabeRohr = txtLänge.Text;
-
-
-                    //Übergabe der String Variablen nach Double
-                    dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
-                    dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
-                    dLängeRohr = Convert.ToDouble(sLängeEingabeRohr);
-
-
-
-                    // Berechnung in Double Variablen
-                    
-                    dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
-                    dVolumen= dFlaeche * dLängeRohr;
-                    dMasse = 1;
-                    dPreis = 1;
-                    dSchwerpunktX = dDurchmesserAussen/2;
-                    dSchwerpunktY = dDurchmesserAussen/2;
-                    dSchwerpunktZ = dLängeRohr/2;
-                    dIX = IRohr(dDurchmesserAussen,dDurchmesserInnen);
-                    dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-
-
-
-                    // Übergabe Double in String Variablen
-                    txtVolumen.Text = Convert.ToString(dVolumen);
-                    txtFlaeche.Text = Convert.ToString(dFlaeche);
-                    txtMasse.Text = Convert.ToString(dMasse);
-                    txtPreis.Text = Convert.ToString(dPreis);
-                    txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
-                    txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
-                    txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
-                    txtIX.Text = Convert.ToString(dIX);
-                    txtIY.Text = Convert.ToString(dIY);
-
-
-                    break;
-
-
-
-
-                case 6:
-                    break;
-
-
-
-
-
-            }
-        }
-
 
 
     }

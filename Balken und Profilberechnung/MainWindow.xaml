@@ -11,6 +11,7 @@
 
         <TreeView SelectedItemChanged="SelectionChanged" x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130">
             <TreeViewItem x:Name="itmEVoll" Header="Vollprofile" >
+                
                 <TreeViewItem x:Name="itmRechteck" Header="Rechteckbalken"  />
                 <TreeViewItem x:Name="itmRund" Header="Rund" IsSelected="False"/>
 
@@ -18,6 +19,7 @@
             </TreeViewItem>
 
             <TreeViewItem x:Name="itmERund" Header="Rohrprofile">
+                
                 <TreeViewItem x:Name="itmVierkantrohr" Header="Vierkantrohr"/>
                 <TreeViewItem x:Name="itmRohr" Header="Rohr"/>
             </TreeViewItem>
