@@ -34,9 +34,9 @@ namespace Balken_und_Profilberechnung
 
             string Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
 
-            if (Auswahl == "itmRechteck") 
+            if (Auswahl == "itmRechteck")
             {
-               
+
                 lblBreiteb.Visibility = Visibility.Visible;
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
@@ -47,7 +47,7 @@ namespace Balken_und_Profilberechnung
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
 
-                
+
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
@@ -246,7 +246,7 @@ namespace Balken_und_Profilberechnung
 
         }
 
-      
+
 
 
 
@@ -258,11 +258,163 @@ namespace Balken_und_Profilberechnung
                 System.Environment.Exit(0);
         }
 
-        
+
+
+
+        public static double FlaecheRechteck(double a, double b)
+        {
+            double flaeche;
+            flaeche = a * b;
+            return flaeche;
+        }
+
+        public static double SRechteck(double seitenlänge)
+        {
+            double schwerpunkt = seitenlänge / 2;
+            return schwerpunkt;
+
+        }
+
+        public static double IRechteck(double a, double b)
+        {
+            double I = a * Math.Pow(b, 3) / 12;
+            return I;
+        }
+
+        //public static bool PrüfungZahl(string Eingabe)
+        //{
+        //    int i = 0;
+        //    bool result = int.TryParse(Eingabe, out i);
+
+        //    return result;
+        //}
+
+        public static double IKreis(double d)
+        {
+            double I = (Math.PI * Math.Pow(d, 4)) / 64;
+            return I;
+        }
+
+        public static double Kreisfläche(double d)
+        {
+            double s = d / 2;
+            double A = Math.PI * Math.Pow(s, 2);
+            return A;
+        }
+
+        public static double IRohr(double D, double d)
+        {
+            double I = Math.PI * (Math.Pow(D, 4) - Math.Pow(d, 4)) / 64;
+            return I;
+        }
+
+
+
+        private void btnRechne_Click(object sender, RoutedEventArgs e)
+        {
+
+            int caseSwitch;
+
+            caseSwitch = 5;
+            switch (caseSwitch)
+            {
+
+                case 1: //Rechteck
+                    break;
+
+
+                case 2:
+                    break;
+
+
+                case 3:
+                    break;
+
+
+                case 4:
+                    break;
+
+
+                case 5: //Rohr
+
+                    string sDurchmesserEingabeAussen;
+                    string sDurchmesserEingabeInnen;
+                    string sLängeEingabeRohr;
+
+
+                    double dDurchmesserAussen;
+                    double dDurchmesserInnen;
+                    double dLängeRohr;
+
+                    double dVolumen;
+                    double dFlaeche;
+                    double dMasse;
+                    double dPreis;
+                    double dSchwerpunktX;
+                    double dSchwerpunktY;
+                    double dSchwerpunktZ;
+                    double dIX;
+                    double dIY;
+
+
+
+                    //Übergabe der Eingabevariablen in String Variablen
+                    sDurchmesserEingabeAussen = txt3.Text;
+                    sDurchmesserEingabeInnen = txt2.Text;
+                    sLängeEingabeRohr = txtLänge.Text;
+
+
+                    //Übergabe der String Variablen nach Double
+                    dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
+                    dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
+                    dLängeRohr = Convert.ToDouble(sLängeEingabeRohr);
+
+
+
+                    // Berechnung in Double Variablen
+                    
+                    dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
+                    dVolumen= dFlaeche * dLängeRohr;
+                    dMasse = 1;
+                    dPreis = 1;
+                    dSchwerpunktX = dDurchmesserAussen/2;
+                    dSchwerpunktY = dDurchmesserAussen/2;
+                    dSchwerpunktZ = dLängeRohr/2;
+                    dIX = IRohr(dDurchmesserAussen,dDurchmesserInnen);
+                    dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
+
+
+
+                    // Übergabe Double in String Variablen
+                    txtVolumen.Text = Convert.ToString(dVolumen);
+                    txtFlaeche.Text = Convert.ToString(dFlaeche);
+                    txtMasse.Text = Convert.ToString(dMasse);
+                    txtPreis.Text = Convert.ToString(dPreis);
+                    txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
+                    txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
+                    txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
+                    txtIX.Text = Convert.ToString(dIX);
+                    txtIY.Text = Convert.ToString(dIY);
+
+
+                    break;
+
+
+
+
+                case 6:
+                    break;
+
+
+
+
+
+            }
+        }
+
+
+
     }
-
-
-
 }
 
 
