@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="cboMaterial\Items\Add.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -106,6 +107,11 @@
     <Resource Include="Rechteck.PNG" />
     <Resource Include="Rohr.PNG" />
     <Resource Include="T-Profil.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Balken.jpg" />
+    <Resource Include="Profile.jpg" />
+    <Resource Include="Rohr.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

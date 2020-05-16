@@ -29,12 +29,13 @@ namespace Balken_und_Profilberechnung
             InitializeComponent();
         }
 
-
-
-        private void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
+        public string Auswahl;             
+                 
+        public void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
         {
 
-            string Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
+            Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
+
 
             if (Auswahl == "itmRechteck")
             {
@@ -43,27 +44,52 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
+                txt2.Text = " ";
 
                 lblHöheh.Visibility = Visibility.Visible;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-
+                txt3.Text = " ";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
+                txt4.Text = " ";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-
+                txt5.Text = " ";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
+                txt6.Text = " ";
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("Rechteck.PNG", UriKind.Relative));
 
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+
+             
+             
             }
 
             if (Auswahl == "itmRund")
@@ -72,26 +98,51 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Visible;
                 txt2.Visibility = Visibility.Visible;
+                txt2.Text = " ";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Hidden;
-
+                txt3.Text = " ";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
+                txt4.Text = " ";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-
+                txt5.Text = " ";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
+                txt6.Text = " ";
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("Kreis.PNG", UriKind.Relative));
+
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+
+              
 
 
             }
@@ -121,7 +172,30 @@ namespace Balken_und_Profilberechnung
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("Kasten.PNG", UriKind.Relative));
+
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+
+                
+
             }
 
             if (Auswahl == "itmRohr")
@@ -130,26 +204,51 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Visible;
                 txt2.Visibility = Visibility.Visible;
+                txt2.Text = " ";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Visible;
                 txt3.Visibility = Visibility.Visible;
-
+                txt3.Text = " ";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
+                txt4.Text = " ";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-
+                txt5.Text = " ";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
+                txt6.Text = " ";
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("Rohr.PNG", UriKind.Relative));
+
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+
+              
 
             }
 
@@ -159,27 +258,50 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Visible;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
+                txt2.Text = " ";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Visible;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-
+                txt3.Text = " ";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Visible;
                 txt4.Visibility = Visibility.Visible;
+                txt4.Text = " ";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Visible;
                 txt5.Visibility = Visibility.Visible;
-
+                txt5.Text = " ";
 
                 lblHöheITProfilH.Visibility = Visibility.Visible;
                 txt6.Visibility = Visibility.Visible;
+                txt6.Text = " ";
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("T-Profil.PNG", UriKind.Relative));
 
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+               
             }
 
 
@@ -189,34 +311,83 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Visible;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
+                txt2.Text = " ";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Visible;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-
+                txt3.Text = " ";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Visible;
                 txt4.Visibility = Visibility.Visible;
+                txt4.Text = " ";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Visible;
                 txt5.Visibility = Visibility.Visible;
-
+                txt5.Text = " ";
 
                 lblHöheITProfilH.Visibility = Visibility.Visible;
                 txt6.Visibility = Visibility.Visible;
+                txt6.Text = " ";
 
+                lblMaterial.Visibility = Visibility.Visible;
+                cboMaterial.Visibility = Visibility.Visible;
+                lblLänge.Visibility = Visibility.Visible;
+                txtLänge.Visibility = Visibility.Visible;
+                lblEinheit.Visibility = Visibility.Visible;
+                cboEinheit.Visibility = Visibility.Visible;
+
+                imTitel.Visibility = Visibility.Hidden;
+                imFigur.Visibility = Visibility.Visible;
                 imFigur.Source = new BitmapImage(new Uri("I-Profil.PNG", UriKind.Relative));
+
+                txtVolumen.Text = " ";
+                txtFlaeche.Text = " ";
+                txtMasse.Text = " ";
+                txtPreis.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtSchwerpunktX.Text = " ";
+                txtIX.Text = " ";
+                txtIY.Text = " ";
+
+              
             }
 
+            if (Auswahl == "itmEVoll")
+            {
+                
 
+                imTitel.Visibility = Visibility.Visible;
+                imTitel.Source = new BitmapImage(new Uri("Balken.jpg", UriKind.Relative));
 
+            }
 
+            if (Auswahl == "itmESonstige")
+            {
+                
+                imTitel.Visibility = Visibility.Visible;
+                imTitel.Source = new BitmapImage(new Uri("Profile.jpg", UriKind.Relative));
+            
 
+            }
+            if (Auswahl == "itmERund")
+            {
 
+                imTitel.Visibility = Visibility.Visible;
+                imTitel.Source = new BitmapImage(new Uri("Rohr.jpg", UriKind.Relative));
+
+             
+            }
         }
+
+
+                
+
+        
 
 
         private void Txb_höhe_LostFocus(object sender, RoutedEventArgs e)
@@ -255,14 +426,15 @@ namespace Balken_und_Profilberechnung
 
         private void btnRechne_Click(object sender, RoutedEventArgs e)
         {
+             
 
-            //Testfall Rohr
-            string bezeichnung_case;
-            bezeichnung_case = "itmRohr";
+                //Testfall Rohr
+                
+            
 
 
 
-            switch (bezeichnung_case)
+            switch (Auswahl)
             {
 
                 case "itmRechteck": //Rechteck
@@ -301,10 +473,6 @@ namespace Balken_und_Profilberechnung
                     double dSchwerpunktZ;
                     double dIX;
                     double dIY;
-
-
-
-
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sDurchmesserEingabeAussen = txt3.Text;
@@ -366,7 +534,7 @@ namespace Balken_und_Profilberechnung
             MessageBoxResult msgAntwort;
             msgAntwort = MessageBox.Show("Wollen Sie wirklich das Programm beenden?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (msgAntwort == MessageBoxResult.Yes)
-                System.Environment.Exit(0);
+                System.Environment.Exit(1);
         }
 
 

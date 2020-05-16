@@ -11,7 +11,7 @@
 
         <TreeView SelectedItemChanged="SelectionChanged" x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130">
             <TreeViewItem x:Name="itmEVoll" Header="Vollprofile" >
-                
+
                 <TreeViewItem x:Name="itmRechteck" Header="Rechteckbalken"  />
                 <TreeViewItem x:Name="itmRund" Header="Rund" IsSelected="False"/>
 
@@ -19,7 +19,7 @@
             </TreeViewItem>
 
             <TreeViewItem x:Name="itmERund" Header="Rohrprofile">
-                
+
                 <TreeViewItem x:Name="itmVierkantrohr" Header="Vierkantrohr"/>
                 <TreeViewItem x:Name="itmRohr" Header="Rohr"/>
             </TreeViewItem>
@@ -34,12 +34,26 @@
 
 
         <!--Textboxen zur Eingabe-->
-        <Label x:Name="lblMaterial" Content="Material:" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="23"/>
-        <ComboBox x:Name="cboMaterial" HorizontalAlignment="Left" Height="23" Margin="222,56,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblEinheit" Content="Einheit:" HorizontalAlignment="Left" Margin="158,96,0,0" VerticalAlignment="Top" Height="31"/>
-        <ComboBox x:Name="cboEinheit" HorizontalAlignment="Left" Height="23" Margin="222,96,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblLänge" Content="Länge:" HorizontalAlignment="Left" Margin="158,136,0,0" VerticalAlignment="Top" Height="31"/>
-        <TextBox x:Name="txtLänge" HorizontalAlignment="Left" Height="23" Margin="222,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblMaterial" Content="Material:" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="23" Visibility="Hidden"/>
+
+        <ComboBox x:Name="cboMaterial" HorizontalAlignment="Left" Height="23" Margin="222,56,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
+            <ComboBoxItem>Holz</ComboBoxItem>
+            <ComboBoxItem>Stahl</ComboBoxItem>
+            <ComboBoxItem>Aluminium</ComboBoxItem>
+            <ComboBoxItem>Kunststoff</ComboBoxItem>
+        </ComboBox>
+
+        <Label x:Name="lblEinheit" Content="Einheit:" HorizontalAlignment="Left" Margin="158,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
+        
+        <ComboBox x:Name="cboEinheit" HorizontalAlignment="Left" Height="23" Margin="222,96,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
+            <ComboBoxItem>mm</ComboBoxItem>
+            <ComboBoxItem>cm</ComboBoxItem>
+            <ComboBoxItem>Zoll</ComboBoxItem>
+            <ComboBoxItem>Fuß</ComboBoxItem>
+        </ComboBox>
+
+        <Label x:Name="lblLänge" Content="Länge:" HorizontalAlignment="Left" Margin="158,136,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
+        <TextBox x:Name="txtLänge" HorizontalAlignment="Left" Height="23" Margin="222,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         <!--Textboxen in mehrfacher Verwendung-->
 
@@ -79,13 +93,13 @@
         <!--Textboxen zur Ausgabe-->
 
         <Label x:Name="lblVolumen" Content="Volumen:" HorizontalAlignment="Left" Margin="158,311,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVolumen" HorizontalAlignment="Left" Height="23" Margin="222,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <TextBox x:Name="txtVolumen" HorizontalAlignment="Left" Height="26" Margin="222,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
         <Label x:Name="lblFlaeche" Content="Fläche:" HorizontalAlignment="Left" Margin="159,334,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="txtFlaeche" HorizontalAlignment="Left" Height="23" Margin="222,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <TextBox x:Name="txtFlaeche" HorizontalAlignment="Left" Height="26" Margin="222,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
         <Label x:Name="lblMasse" Content="Masse:" HorizontalAlignment="Left" Margin="159,360,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtMasse" HorizontalAlignment="Left" Height="23" Margin="222,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <TextBox x:Name="txtMasse" HorizontalAlignment="Left" Height="26" Margin="222,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
         <Label x:Name="lblPreis" Content="Preis:" HorizontalAlignment="Left" Margin="158,383,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPreis" HorizontalAlignment="Left" Height="23" Margin="222,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <TextBox x:Name="txtPreis" HorizontalAlignment="Left" Height="26" Margin="222,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
 
 
         <Label x:Name="lblSchwerpunkt" Content="Schwerpunkt:" HorizontalAlignment="Left" Margin="423,311,0,0" VerticalAlignment="Top"/>
@@ -124,6 +138,7 @@
         <Label Content="Eingabe" HorizontalAlignment="Left" Height="30" Margin="158,11,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Label Content="Ergebniss" HorizontalAlignment="Left" Height="30" Margin="158,266,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Image x:Name="imFigur" HorizontalAlignment="Left" Height="155" Margin="575,44,0,0" VerticalAlignment="Top" Width="181" />
+        <Image x:Name="imTitel" HorizontalAlignment="Left" Height="443" Margin="145,11,0,0" VerticalAlignment="Top" Width="625" Stretch="Fill" />
 
 
 
