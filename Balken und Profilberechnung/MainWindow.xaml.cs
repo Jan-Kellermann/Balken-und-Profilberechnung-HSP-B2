@@ -29,12 +29,16 @@ namespace Balken_und_Profilberechnung
             InitializeComponent();
         }
 
-        public string Auswahl;             
-                 
+        public string Auswahl;
+        public string Material;
+        public string Einheit;
+
         public void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
         {
 
             Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
+           //Material = ((ComboBoxItem)e.NewValue).Content.ToString();            
+           // Einheit = ((ComboBoxItem)e.NewValue).Name == "cboEinheit".ToString();
 
 
             if (Auswahl == "itmRechteck")
@@ -88,8 +92,8 @@ namespace Balken_und_Profilberechnung
                 txtIY.Text = " ";
 
 
-             
-             
+
+
             }
 
             if (Auswahl == "itmRund")
@@ -142,7 +146,7 @@ namespace Balken_und_Profilberechnung
                 txtIY.Text = " ";
 
 
-              
+
 
 
             }
@@ -194,7 +198,7 @@ namespace Balken_und_Profilberechnung
                 txtIY.Text = " ";
 
 
-                
+
 
             }
 
@@ -248,7 +252,7 @@ namespace Balken_und_Profilberechnung
                 txtIY.Text = " ";
 
 
-              
+
 
             }
 
@@ -301,7 +305,7 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-               
+
             }
 
 
@@ -354,12 +358,12 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-              
+
             }
 
             if (Auswahl == "itmEVoll")
             {
-                
+
 
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Balken.jpg", UriKind.Relative));
@@ -368,10 +372,10 @@ namespace Balken_und_Profilberechnung
 
             if (Auswahl == "itmESonstige")
             {
-                
+
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Profile.jpg", UriKind.Relative));
-            
+
 
             }
             if (Auswahl == "itmERund")
@@ -380,14 +384,14 @@ namespace Balken_und_Profilberechnung
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Rohr.jpg", UriKind.Relative));
 
-             
+
             }
         }
 
 
-                
 
-        
+
+
 
 
         private void Txb_höhe_LostFocus(object sender, RoutedEventArgs e)
@@ -426,11 +430,11 @@ namespace Balken_und_Profilberechnung
 
         private void btnRechne_Click(object sender, RoutedEventArgs e)
         {
-             
 
-                //Testfall Rohr
-                
-            
+
+            //Testfall Rohr
+
+
 
 
 
@@ -497,8 +501,61 @@ namespace Balken_und_Profilberechnung
                         // Berechnung in Double Variablen
                         dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
                         dVolumen = dFlaeche * dLängeRohr;
-                        dMasse = 1;
+
+                        //Masse und Preis berechnen
+
+                        //                < !--Textboxen zur Eingabe-->
+                        //< Label x: Name = "lblMaterial" Content = "Material:" HorizontalAlignment = "Left" Margin = "158,56,0,0" VerticalAlignment = "Top" Height = "23" Visibility = "Hidden" />             
+
+                        //              < ComboBox x: Name = "cboMaterial" HorizontalAlignment = "Left" Height = "23" Margin = "222,56,0,0" VerticalAlignment = "Top" Width = "120" Visibility = "Hidden" >                             
+                        //                                < ComboBoxItem > Holz </ ComboBoxItem >                             
+                        //                                < ComboBoxItem > Stahl </ ComboBoxItem >                             
+                        //                                < ComboBoxItem > Aluminium </ ComboBoxItem >                             
+                        //                                < ComboBoxItem > Kunststoff </ ComboBoxItem >                             
+                        //                            </ ComboBox >                             
+
+                        //                            < Label x: Name = "lblEinheit" Content = "Einheit:" HorizontalAlignment = "Left" Margin = "158,96,0,0" VerticalAlignment = "Top" Height = "31" Visibility = "Hidden" />                                           
+
+                        //                                          < ComboBox x: Name = "cboEinheit" HorizontalAlignment = "Left" Height = "23" Margin = "222,96,0,0" VerticalAlignment = "Top" Width = "120" Visibility = "Hidden" >                                                         
+                        //                                                            < ComboBoxItem > mm </ ComboBoxItem >                                                         
+                        //                                                            < ComboBoxItem > cm </ ComboBoxItem >                                                         
+                        //                                                            < ComboBoxItem > Zoll </ ComboBoxItem >                                                         
+                        //                                                            < ComboBoxItem > Fuß </ ComboBoxItem >
+
+                        //                                                        </ ComboBox >
+
+                        switch (Material)
+                        {
+                            case "Holz":
+                                dMasse = 10;
+                                break;
+
+
+                            case "Stahl":
+                                dMasse = 2;
+                                break;
+
+                            case "Aluminium":
+                                dMasse = 3;
+                                break;
+
+                            case "Kunststoff":
+                                dMasse = 4;
+                                break;
+
+
+                        }
+
+
+                        dMasse = 10;
+
+
+
+
                         dPreis = 1;
+
+
+
                         dSchwerpunktX = dDurchmesserAussen / 2;
                         dSchwerpunktY = dDurchmesserAussen / 2;
                         dSchwerpunktZ = dLängeRohr / 2;
@@ -517,6 +574,8 @@ namespace Balken_und_Profilberechnung
                         txtIX.Text = Convert.ToString(dIX);
                         txtIY.Text = Convert.ToString(dIY);
                     }
+
+
                     break;
 
 
