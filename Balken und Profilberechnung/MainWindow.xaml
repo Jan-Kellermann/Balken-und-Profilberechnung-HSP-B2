@@ -36,7 +36,8 @@
         <!--Textboxen zur Eingabe-->
         <Label x:Name="lblMaterial" Content="Material:" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="23" Visibility="Hidden"/>
 
-        <ComboBox x:Name="cboMaterial" HorizontalAlignment="Left" Height="23" Margin="222,56,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
+        <ComboBox x:Name="cboMaterial" HorizontalAlignment="Left"  Height="23" Margin="222,56,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedIndex="0">
+            <ComboBoxItem>Keine Auswahl</ComboBoxItem>
             <ComboBoxItem>Holz</ComboBoxItem>
             <ComboBoxItem>Stahl</ComboBoxItem>
             <ComboBoxItem>Aluminium</ComboBoxItem>
@@ -44,9 +45,9 @@
         </ComboBox>
 
         <Label x:Name="lblEinheit" Content="Einheit:" HorizontalAlignment="Left" Margin="158,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
-        
-        <ComboBox x:Name="cboEinheit" HorizontalAlignment="Left" Height="23" Margin="222,96,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
-            <ComboBoxItem>mm</ComboBoxItem>
+
+        <ComboBox x:Name="cboEinheit" HorizontalAlignment="Left" Height="23" Margin="222,96,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedIndex="0">
+            <ComboBoxItem>Standard in mm</ComboBoxItem>
             <ComboBoxItem>cm</ComboBoxItem>
             <ComboBoxItem>Zoll</ComboBoxItem>
             <ComboBoxItem>Fuß</ComboBoxItem>

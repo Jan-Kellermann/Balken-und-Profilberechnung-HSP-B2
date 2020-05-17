@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -32,6 +34,11 @@ namespace Balken_und_Profilberechnung
         public string Auswahl;
         public string Material;
         public string Einheit;
+        public double dDichte;
+        public double dGewicht;
+        public double dFaktor;
+        public double dPreis;
+
 
         public void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
         {
@@ -389,9 +396,9 @@ namespace Balken_und_Profilberechnung
         }
 
 
+        
 
-
-
+        
 
 
         private void Txb_höhe_LostFocus(object sender, RoutedEventArgs e)
@@ -423,8 +430,7 @@ namespace Balken_und_Profilberechnung
 
         }
 
-
-
+      
 
 
 
@@ -459,6 +465,7 @@ namespace Balken_und_Profilberechnung
 
                 case "itmRohr": //Rohr
 
+
                     string sDurchmesserEingabeAussen;
                     string sDurchmesserEingabeInnen;
                     string sLängeEingabeRohr;
@@ -470,13 +477,16 @@ namespace Balken_und_Profilberechnung
 
                     double dVolumen;
                     double dFlaeche;
-                    double dMasse;
-                    double dPreis;
+                    
+                    
                     double dSchwerpunktX;
                     double dSchwerpunktY;
                     double dSchwerpunktZ;
                     double dIX;
                     double dIY;
+
+                    
+
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sDurchmesserEingabeAussen = txt3.Text;
@@ -524,35 +534,69 @@ namespace Balken_und_Profilberechnung
 
                         //                                                        </ ComboBox >
 
-                        switch (Material)
+                        string Material = cboMaterial.SelectedItem.ToString();
+
+                        //MessageBox.Show(Material);
+                        //string Pfad = "System.Windows.Controls.ComboBoxItem: ";
+
+                        switch (Material) //legt die dichte eines Materials in kg/m³ fest und den Preis in Euro auf 1g
                         {
-                            case "Holz":
-                                dMasse = 10;
+                            case "System.Windows.Controls.ComboBoxItem: Holz":
+                                dDichte = 650;
+                                dPreis = 0.001;
                                 break;
 
 
-                            case "Stahl":
-                                dMasse = 2;
+                            case "System.Windows.Controls.ComboBoxItem: Stahl":
+                                dDichte = 7874;
+                                dPreis = 0.002;
                                 break;
 
-                            case "Aluminium":
-                                dMasse = 3;
+                            case "System.Windows.Controls.ComboBoxItem: Aluminium":
+                                dDichte = 2700;
+                                dPreis = 0.006;
                                 break;
 
-                            case "Kunststoff":
-                                dMasse = 4;
+                            case "System.Windows.Controls.ComboBoxItem: Kunststoff":
+                                dDichte = 900;
+                                dPreis = 0.004;
                                 break;
 
+                        }
+
+                        string Einheit = cboEinheit.SelectedItem.ToString();
+
+                        //MessageBox.Show(Material);
+                        //string Pfad = "System.Windows.Controls.ComboBoxItem: ";
+
+                        switch (Einheit) //legt einen Faktor von mm in die jeweilige Einheit fest
+                        {
+                            case "System.Windows.Controls.ComboBoxItem: Standard in mm":
+                                dFaktor = 1;
+                                break;
+
+
+                            case "System.Windows.Controls.ComboBoxItem: cm":
+                                dFaktor = 0.1;
+                                break;
+
+                            case "System.Windows.Controls.ComboBoxItem: Zoll":
+                                dFaktor = 0.039370078;
+                                break;
+
+                            case "System.Windows.Controls.ComboBoxItem: Fuß":
+                                dFaktor = 0.00328083989;
+                                break;
 
                         }
 
 
-                        dMasse = 10;
+
+                        //MessageBox.Show(dDichte.ToString());
 
 
 
 
-                        dPreis = 1;
 
 
 
@@ -561,12 +605,12 @@ namespace Balken_und_Profilberechnung
                         dSchwerpunktZ = dLängeRohr / 2;
                         dIX = IRohr(dDurchmesserAussen, dDurchmesserInnen);
                         dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-
+                        dGewicht = dVolumen * dDichte;
 
                         // Übergabe Double in String Variablen
                         txtVolumen.Text = Convert.ToString(dVolumen);
                         txtFlaeche.Text = Convert.ToString(dFlaeche);
-                        txtMasse.Text = Convert.ToString(dMasse);
+                        txtMasse.Text = Convert.ToString(dGewicht);
                         txtPreis.Text = Convert.ToString(dPreis);
                         txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
                         txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
