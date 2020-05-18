@@ -103,20 +103,21 @@
         <TextBox x:Name="txtPreis" HorizontalAlignment="Left" Height="26" Margin="222,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
 
 
-        <Label x:Name="lblSchwerpunkt" Content="Schwerpunkt:" HorizontalAlignment="Left" Margin="423,311,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblSchwerpunktX" Content="X:" HorizontalAlignment="Left" Margin="575,311,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtSchwerpunktX" HorizontalAlignment="Left" Height="23" Margin="600,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
-        <Label x:Name="lblSchwerpunktY" Content="Y:" HorizontalAlignment="Left" Margin="631,311,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtSchwerpunktY" HorizontalAlignment="Left" Height="23" Margin="655,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
-        <Label x:Name="lblSchwerpunktZ" Content="Z:" HorizontalAlignment="Left" Margin="691,311,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtSchwerpunktZ" HorizontalAlignment="Left" Height="23" Margin="715,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblSchwerpunkt" Content="Schwerpunkt          :" HorizontalAlignment="Left" Margin="365,311,0,0" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="lblFrage" Content="-?-" HorizontalAlignment="Left" Margin="446,311,0,0" VerticalAlignment="Top"  Background="#FFF7F7FB" Cursor="Hand" MouseLeftButtonDown="lblFrage_MouseLeftButtonDown"/>
+        <Label x:Name="lblSchwerpunktX" Content="X:" HorizontalAlignment="Left" Margin="517,311,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSchwerpunktX" HorizontalAlignment="Left" Height="23" Margin="542,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblSchwerpunktY" Content="Y:" HorizontalAlignment="Left" Margin="600,311,0,0" VerticalAlignment="Top" Width="23"/>
+        <TextBox x:Name="txtSchwerpunktY" HorizontalAlignment="Left" Height="23" Margin="623,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblSchwerpunktZ" Content="Z:" HorizontalAlignment="Left" Margin="688,311,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSchwerpunktZ" HorizontalAlignment="Left" Height="23" Margin="712,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.294,0.899" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
 
 
-        <Label x:Name="lblFlächenträgheitsmoment" Content="Flächenträgheitsmoment:" HorizontalAlignment="Left" Margin="423,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtIX" HorizontalAlignment="Left" Height="23" Margin="600,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
-        <Label x:Name="lblIX" Content="Ix:" HorizontalAlignment="Left" Margin="574,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtIY" HorizontalAlignment="Left" Height="23" Margin="685,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
-        <Label x:Name="lblIY" Content="Iy:" HorizontalAlignment="Left" Margin="660,334,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblFlächenträgheitsmoment" Content="Flächenträgheitsmoment:" HorizontalAlignment="Left" Margin="365,334,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIX" HorizontalAlignment="Left" Height="23" Margin="542,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblIX" Content="Ix:" HorizontalAlignment="Left" Margin="516,334,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIY" HorizontalAlignment="Left" Height="23" Margin="627,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblIY" Content="Iy:" HorizontalAlignment="Left" Margin="602,334,0,0" VerticalAlignment="Top"/>
 
 
 
@@ -127,8 +128,7 @@
         <!--Buttons-->
 
         <Button x:Name="btnEnde" Content="Beenden" HorizontalAlignment="Left" Margin="679,410,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnEnde_Click"/>
-        <Button x:Name="btnNochmal" Content="Nochmal!" HorizontalAlignment="Left" Margin="589,410,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
-        <Button x:Name="btnRechne" Content="Rechne!" HorizontalAlignment="Left" Margin="499,410,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnRechne_Click"/>
+        <Button x:Name="btnRechne" Content="Rechne!" HorizontalAlignment="Left" Margin="544,410,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnRechne_Click"/>
 
 
 
@@ -139,8 +139,11 @@
         <Label Content="Eingabe" HorizontalAlignment="Left" Height="30" Margin="158,11,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Label Content="Ergebniss" HorizontalAlignment="Left" Height="30" Margin="158,266,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Image x:Name="imFigur" HorizontalAlignment="Left" Height="155" Margin="575,44,0,0" VerticalAlignment="Top" Width="181" />
+        
         <Image x:Name="imTitel" HorizontalAlignment="Left" Height="443" Margin="145,11,0,0" VerticalAlignment="Top" Width="625" Stretch="Fill" />
+        <Image HorizontalAlignment="Left" Height="100" Margin="575,136,0,0" VerticalAlignment="Top" Width="100"/>
 
+        
 
 
 
