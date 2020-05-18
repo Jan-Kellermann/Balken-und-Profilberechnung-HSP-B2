@@ -113,5 +113,8 @@
     <Resource Include="Profile.jpg" />
     <Resource Include="Rohr.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Startseite.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,11 +9,15 @@
     <Grid>
 
 
-        <TreeView SelectedItemChanged="SelectionChanged" x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130">
+        <TreeView SelectedItemChanged="SelectionChanged" x:Name="trvProfil" HorizontalAlignment="Left" Height="311" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" >
+            
+            
+            <TreeViewItem x:Name="itmStartseite" Header="Startseite" />
+
             <TreeViewItem x:Name="itmEVoll" Header="Vollprofile" >
 
                 <TreeViewItem x:Name="itmRechteck" Header="Rechteckbalken"  />
-                <TreeViewItem x:Name="itmRund" Header="Rund" IsSelected="False"/>
+                <TreeViewItem x:Name="itmRund" Header="Rund" />
 
 
             </TreeViewItem>
@@ -139,11 +143,15 @@
         <Label Content="Eingabe" HorizontalAlignment="Left" Height="30" Margin="158,11,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Label Content="Ergebniss" HorizontalAlignment="Left" Height="30" Margin="158,266,0,0" VerticalAlignment="Top" Width="92" FontSize="14"/>
         <Image x:Name="imFigur" HorizontalAlignment="Left" Height="155" Margin="575,44,0,0" VerticalAlignment="Top" Width="181" />
-        
-        <Image x:Name="imTitel" HorizontalAlignment="Left" Height="443" Margin="145,11,0,0" VerticalAlignment="Top" Width="625" Stretch="Fill" />
-        <Image HorizontalAlignment="Left" Height="100" Margin="575,136,0,0" VerticalAlignment="Top" Width="100"/>
 
-        
+        <Image x:Name="imTitel" HorizontalAlignment="Left" Height="443" Margin="145,11,0,0" VerticalAlignment="Top" Width="625" Stretch="Fill" Source="Startseite.jpg"/>
+
+        <Image HorizontalAlignment="Left" Height="100" Margin="575,136,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lblStartseite" Content="Legen Sie los!" HorizontalAlignment="Left" Height="58" Margin="347,366,0,0" VerticalAlignment="Top" Width="244" RenderTransformOrigin="0.585,-0.841" FontSize="36" Visibility="Visible"/>
+
+
+
+
 
 
 

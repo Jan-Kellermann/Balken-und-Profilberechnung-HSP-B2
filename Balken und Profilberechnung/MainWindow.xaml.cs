@@ -73,27 +73,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Visible;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -119,7 +119,7 @@ namespace Balken_und_Profilberechnung
                 txtIY.Text = " ";
 
                 txtLänge.Text = " ";
-
+                lblStartseite.Visibility = Visibility.Hidden;
 
             }
 
@@ -129,27 +129,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Visible;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Hidden;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -172,8 +172,8 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-                txtLänge.Text = " ";
-
+                txtLänge.Text = "";
+                lblStartseite.Visibility = Visibility.Hidden;
 
 
             }
@@ -184,27 +184,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Visible;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Visible;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Visible;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Visible;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Visible;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -227,8 +227,8 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-                txtLänge.Text = " ";
-
+                txtLänge.Text = "";
+                lblStartseite.Visibility = Visibility.Hidden;
 
 
 
@@ -240,27 +240,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Hidden;
                 lblDurchmesserd.Visibility = Visibility.Visible;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Hidden;
                 lblDurchmesserD.Visibility = Visibility.Visible;
                 txt3.Visibility = Visibility.Visible;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Hidden;
                 txt4.Visibility = Visibility.Hidden;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Hidden;
                 txt5.Visibility = Visibility.Hidden;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Hidden;
                 txt6.Visibility = Visibility.Hidden;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -283,8 +283,8 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-                txtLänge.Text = " ";
-
+                txtLänge.Text = "";
+                lblStartseite.Visibility = Visibility.Hidden;
 
             }
 
@@ -294,27 +294,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Visible;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Visible;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Visible;
                 txt4.Visibility = Visibility.Visible;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Visible;
                 txt5.Visibility = Visibility.Visible;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Visible;
                 txt6.Visibility = Visibility.Visible;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -337,7 +337,8 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-                txtLänge.Text = " ";
+                txtLänge.Text = "";
+                lblStartseite.Visibility = Visibility.Hidden;
             }
 
 
@@ -347,27 +348,27 @@ namespace Balken_und_Profilberechnung
                 lblBreiteb1.Visibility = Visibility.Visible;
                 lblDurchmesserd.Visibility = Visibility.Hidden;
                 txt2.Visibility = Visibility.Visible;
-                txt2.Text = " ";
+                txt2.Text = "";
 
                 lblHöheh.Visibility = Visibility.Hidden;
                 lblBreiteb2.Visibility = Visibility.Visible;
                 lblDurchmesserD.Visibility = Visibility.Hidden;
                 txt3.Visibility = Visibility.Visible;
-                txt3.Text = " ";
+                txt3.Text = "";
 
                 lblBreiteB.Visibility = Visibility.Hidden;
                 lblHöheTIProfilh.Visibility = Visibility.Visible;
                 txt4.Visibility = Visibility.Visible;
-                txt4.Text = " ";
+                txt4.Text = "";
 
                 lblHöheH.Visibility = Visibility.Hidden;
                 lblBreiteITProfilB.Visibility = Visibility.Visible;
                 txt5.Visibility = Visibility.Visible;
-                txt5.Text = " ";
+                txt5.Text = "";
 
                 lblHöheITProfilH.Visibility = Visibility.Visible;
                 txt6.Visibility = Visibility.Visible;
-                txt6.Text = " ";
+                txt6.Text = "";
 
                 lblMaterial.Visibility = Visibility.Visible;
                 cboMaterial.Visibility = Visibility.Visible;
@@ -390,7 +391,8 @@ namespace Balken_und_Profilberechnung
                 txtIX.Text = " ";
                 txtIY.Text = " ";
 
-                txtLänge.Text = " ";
+                txtLänge.Text = "";
+                lblStartseite.Visibility = Visibility.Hidden;
             }
 
 
@@ -400,7 +402,7 @@ namespace Balken_und_Profilberechnung
 
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Balken.jpg", UriKind.Relative));
-
+                lblStartseite.Visibility = Visibility.Hidden;
             }
 
             if (Auswahl == "itmESonstige")
@@ -408,7 +410,7 @@ namespace Balken_und_Profilberechnung
 
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Profile.jpg", UriKind.Relative));
-
+                lblStartseite.Visibility = Visibility.Hidden;
 
             }
             if (Auswahl == "itmERund")
@@ -416,7 +418,17 @@ namespace Balken_und_Profilberechnung
 
                 imTitel.Visibility = Visibility.Visible;
                 imTitel.Source = new BitmapImage(new Uri("Rohr.jpg", UriKind.Relative));
+                lblStartseite.Visibility = Visibility.Hidden;
 
+
+            }
+
+            if (Auswahl == "itmStartseite") 
+            {
+
+                imTitel.Visibility = Visibility.Visible;
+                lblStartseite.Visibility = Visibility.Visible;
+                imTitel.Source = new BitmapImage(new Uri("Startseite.jpg", UriKind.Relative));
 
             }
         }
@@ -595,30 +607,23 @@ namespace Balken_und_Profilberechnung
                     double dBreiteITProfilB;
                     double dHöheITProfilH;
 
-                    do
+                    
+                        
+
+                     if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
+                     {
+                        MessageBox.Show("Eingabe ist keine Zahl.");
+
+                     }
+
+                    if ((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true)
+
                     {
-                        do //Zahlen werden eingelesen und geprüft ob sie mit dem Datentyp und übereinstimmen und ob es sich um eine Zahl handelt 
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
 
-                        {
-
-                            if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
-                            {
-                                MessageBox.Show("Eingabe ist keine Zahl.");
-
-                            }
-
-                            if ((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true)
-
-                            {
-                                MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
-                            }
-
-
-
-                        }
-                        while (((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false) || ((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true));
-                        //Prüfung sehr lang eventuel findet man noch was besseres
-                        //wenn es sich bei den Eingaben um Zahlen handelt werden die eingaben in Double konvertiert
+                    else
+                    {
 
                         dLaenge = Convert.ToDouble(sLängeEingabe);
                         dBreiteb1 = Convert.ToDouble(sBreiteb1Eingabe);
@@ -636,43 +641,41 @@ namespace Balken_und_Profilberechnung
                             MessageBox.Show("Ihre Eingegebene Gesamthöhe H muss größer als Höhe h sein.");
                         }
 
+                        else
+                        {
+                            double dRechteck1Fläche = FlaecheRechteck(dBreiteITProfilB, dHöheITProfilH);                                                                 //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
+                            double dRechteck2Fläche = FlaecheRechteck(dBreiteb1, dHöheTIProfilh);                                                          //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
+                            double dRechteck3Fläche = FlaecheRechteck(dBreiteb2, dHöheTIProfilh);
+
+                            double dhErsatz = dHöheITProfilH - dHöheTIProfilh;
+                            double dbErsatz = dBreiteb1 + dBreiteb2 + dBreiteITProfilB;
+
+
+                            dFlaeche = Math.Round((dRechteck1Fläche + dRechteck2Fläche + dRechteck3Fläche) * dFaktor, 4);                                                                   //Flächenberechnung der T-Träger wird aus zwei Rechtecken zusammengesetzt die über das Unterprogramm Rechteck() aus der Balkenberechnung
+                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 4);                                                                               // Volumen wird durch die bereits berechnete Fläche und die Trägerlänge berechnet
+                            dSchwerpunktX = Math.Round(((dRechteck1Fläche * SRechteck(dBreiteITProfilB) + dRechteck2Fläche * SRechteck(dBreiteb1) + dRechteck3Fläche * SRechteck(dBreiteb2)) / dFlaeche) * dFaktor, 2);     //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
+                            dSchwerpunktY = Math.Round(-1 * (((dRechteck1Fläche * SRechteck(dHöheITProfilH) + dRechteck2Fläche * SRechteck(dHöheTIProfilh) + dRechteck3Fläche * SRechteck(dHöheTIProfilh)) / dFlaeche) * dFaktor), 2);    //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
+                            dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);                                                                               //Der Schwerpunkt in Balkenlänge befindet sich mittig
+                            dIY = Math.Round((IRechteck(dbErsatz, dHöheITProfilH) + IRechteck(dBreiteITProfilB, dhErsatz)) / 12, 2);                                  //Berechnung des Flächenträgheitsmomentes um die Y Achse
+                                                                                                                                                                      //double dIX = ((IRechteck(hHöheRip, bBreiteRip) + IRechteck(hHöhe, bBreite)) / 12); //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
+                            dGewicht = Math.Round((dVolumen / 1000000000) * dDichte, 4);
+                            dPreis = dGewicht * 1000 * dPreisProG;
+
+                            //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+
+                            txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
+                            txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
+                            txtMasse.Text = Convert.ToString(dGewicht) + "kg";
+                            txtPreis.Text = Convert.ToString(dPreis) + "€";
+                            txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX) + "mm";
+                            txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
+                            txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
+                            txtIX.Text = Convert.ToString(dIX) + "mm^4";
+                            txtIY.Text = Convert.ToString(dIY) + "mm^4";
+                        }
+
                     }
-                    while (dLaenge <= 0 || dBreiteb1 <= 0 || dBreiteb2 <= 0 || dHöheTIProfilh <= 0 || dBreiteITProfilB <= 0 || dHöheITProfilH <= 0 || dHöheTIProfilh > dHöheITProfilH);
-
-                    //Sind die Zahlen Größer Null und die Rippenbreite schmaler als Die Gutbreite wird mit den Berechnungen begonnen
-                    double dRechteck1Fläche = FlaecheRechteck(dBreiteITProfilB, dHöheITProfilH);                                                                 //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
-                    double dRechteck2Fläche = FlaecheRechteck(dBreiteb1, dHöheTIProfilh);                                                          //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
-                    double dRechteck3Fläche = FlaecheRechteck(dBreiteb2, dHöheTIProfilh);
-
-                    double dhErsatz = dHöheITProfilH - dHöheTIProfilh;
-                    double dbErsatz = dBreiteb1 + dBreiteb2 + dBreiteITProfilB;
-                    
-
-                    dFlaeche = Math.Round((dRechteck1Fläche + dRechteck2Fläche + dRechteck3Fläche) * dFaktor, 4);                                                                   //Flächenberechnung der T-Träger wird aus zwei Rechtecken zusammengesetzt die über das Unterprogramm Rechteck() aus der Balkenberechnung
-                    dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 4);                                                                               // Volumen wird durch die bereits berechnete Fläche und die Trägerlänge berechnet
-                    dSchwerpunktX = Math.Round(((dRechteck1Fläche * SRechteck(dBreiteITProfilB) + dRechteck2Fläche * SRechteck(dBreiteb1) + dRechteck3Fläche * SRechteck(dBreiteb2)) / dFlaeche) * dFaktor, 2);     //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
-                    dSchwerpunktY = Math.Round(-1 * (((dRechteck1Fläche * SRechteck(dHöheITProfilH) + dRechteck2Fläche * SRechteck(dHöheTIProfilh) + dRechteck3Fläche * SRechteck(dHöheTIProfilh)) / dFlaeche) * dFaktor), 2);    //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
-                    dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);                                                                               //Der Schwerpunkt in Balkenlänge befindet sich mittig
-                    dIY = Math.Round((IRechteck(dbErsatz, dHöheITProfilH) + IRechteck(dBreiteITProfilB, dhErsatz)) / 12, 2);                                  //Berechnung des Flächenträgheitsmomentes um die Y Achse
-                    //double dIX = ((IRechteck(hHöheRip, bBreiteRip) + IRechteck(hHöhe, bBreite)) / 12); //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
-                    dGewicht = Math.Round((dVolumen / 1000000000) * dDichte, 4);
-                    dPreis = dGewicht * 1000 * dPreisProG;
-
-
-
-
-
-                   
-
-                    txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
-                    txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
-                    txtMasse.Text = Convert.ToString(dGewicht) + "kg";
-                    txtPreis.Text = Convert.ToString(dPreis) + "€";
-                    txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX) + "mm";
-                    txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
-                    txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
-                    txtIX.Text = Convert.ToString(dIX) + "mm^4";
-                    txtIY.Text = Convert.ToString(dIY) + "mm^4";
+                                       
 
                     break;
 
@@ -854,6 +857,11 @@ namespace Balken_und_Profilberechnung
         private void lblFrage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Bezugspunkt unten Links");
+        }
+
+        private void itmEVoll_GotFocus(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
