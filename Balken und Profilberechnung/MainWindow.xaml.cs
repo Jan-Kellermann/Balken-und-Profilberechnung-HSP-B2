@@ -34,18 +34,32 @@ namespace Balken_und_Profilberechnung
         public string Auswahl;
         public string Material;
         public string Einheit;
+
         public double dDichte;
         public double dGewicht;
         public double dFaktor;
-        public double dPreis;
+        public double dPreis; //Preis der Materialien pro g
+        public double dMasse;
+        public double dKosten; //Kosten= Gewicht*Preis
+
+        public double dVolumen;
+        public double dFlaeche;
+        public double dSchwerpunktX;
+        public double dSchwerpunktY;
+        public double dSchwerpunktZ;
+        public double dIX;
+        public double dIY;
+
+        public string sLängeEingabe;
+        public double dLänge;
 
 
         public void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
         {
 
             Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
-           //Material = ((ComboBoxItem)e.NewValue).Content.ToString();            
-           // Einheit = ((ComboBoxItem)e.NewValue).Name == "cboEinheit".ToString();
+            //Material = ((ComboBoxItem)e.NewValue).Content.ToString();            
+            // Einheit = ((ComboBoxItem)e.NewValue).Name == "cboEinheit".ToString();
 
 
             if (Auswahl == "itmRechteck")
@@ -396,9 +410,9 @@ namespace Balken_und_Profilberechnung
         }
 
 
-        
 
-        
+
+
 
 
         private void Txb_höhe_LostFocus(object sender, RoutedEventArgs e)
@@ -430,7 +444,7 @@ namespace Balken_und_Profilberechnung
 
         }
 
-      
+
 
 
 
@@ -439,9 +453,6 @@ namespace Balken_und_Profilberechnung
 
 
             //Testfall Rohr
-
-
-
 
 
             switch (Auswahl)
@@ -468,36 +479,28 @@ namespace Balken_und_Profilberechnung
 
                     string sDurchmesserEingabeAussen;
                     string sDurchmesserEingabeInnen;
-                    string sLängeEingabeRohr;
+                    //string sLängeEingabe;
 
 
                     double dDurchmesserAussen;
                     double dDurchmesserInnen;
-                    double dLängeRohr;
+                    //double dLänge;
 
-                    double dVolumen;
-                    double dFlaeche;
-                    
-                    
-                    double dSchwerpunktX;
-                    double dSchwerpunktY;
-                    double dSchwerpunktZ;
-                    double dIX;
-                    double dIY;
 
-                    
+
+
 
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sDurchmesserEingabeAussen = txt3.Text;
                     sDurchmesserEingabeInnen = txt2.Text;
-                    sLängeEingabeRohr = txtLänge.Text;
+                    sLängeEingabe = txtLänge.Text;
 
 
                     //Übergabe der String Variablen nach Double
                     dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
                     dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
-                    dLängeRohr = Convert.ToDouble(sLängeEingabeRohr);
+                    dLänge = Convert.ToDouble(sLängeEingabe);
 
                     //Innendurchmesser kleiner?
                     if (dDurchmesserInnen > dDurchmesserAussen)
@@ -508,31 +511,10 @@ namespace Balken_und_Profilberechnung
                     //Durchmesser korrekt
                     else
                     {
-                        // Berechnung in Double Variablen
-                        dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
-                        dVolumen = dFlaeche * dLängeRohr;
+
 
                         //Masse und Preis berechnen
 
-                        //                < !--Textboxen zur Eingabe-->
-                        //< Label x: Name = "lblMaterial" Content = "Material:" HorizontalAlignment = "Left" Margin = "158,56,0,0" VerticalAlignment = "Top" Height = "23" Visibility = "Hidden" />             
-
-                        //              < ComboBox x: Name = "cboMaterial" HorizontalAlignment = "Left" Height = "23" Margin = "222,56,0,0" VerticalAlignment = "Top" Width = "120" Visibility = "Hidden" >                             
-                        //                                < ComboBoxItem > Holz </ ComboBoxItem >                             
-                        //                                < ComboBoxItem > Stahl </ ComboBoxItem >                             
-                        //                                < ComboBoxItem > Aluminium </ ComboBoxItem >                             
-                        //                                < ComboBoxItem > Kunststoff </ ComboBoxItem >                             
-                        //                            </ ComboBox >                             
-
-                        //                            < Label x: Name = "lblEinheit" Content = "Einheit:" HorizontalAlignment = "Left" Margin = "158,96,0,0" VerticalAlignment = "Top" Height = "31" Visibility = "Hidden" />                                           
-
-                        //                                          < ComboBox x: Name = "cboEinheit" HorizontalAlignment = "Left" Height = "23" Margin = "222,96,0,0" VerticalAlignment = "Top" Width = "120" Visibility = "Hidden" >                                                         
-                        //                                                            < ComboBoxItem > mm </ ComboBoxItem >                                                         
-                        //                                                            < ComboBoxItem > cm </ ComboBoxItem >                                                         
-                        //                                                            < ComboBoxItem > Zoll </ ComboBoxItem >                                                         
-                        //                                                            < ComboBoxItem > Fuß </ ComboBoxItem >
-
-                        //                                                        </ ComboBox >
 
                         string Material = cboMaterial.SelectedItem.ToString();
 
@@ -592,26 +574,26 @@ namespace Balken_und_Profilberechnung
 
 
 
-                        //MessageBox.Show(dDichte.ToString());
+                        //MessageBox.Show("Dichte:  "+ dDichte.ToString()+ "  kg/m^3");
 
+                        // Berechnung in Double Variablen
+                        dFlaeche = (Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen)) * dFaktor;
+                        dVolumen = dFlaeche * dLänge * dFaktor;
 
-
-
-
-
-
-                        dSchwerpunktX = dDurchmesserAussen / 2;
-                        dSchwerpunktY = dDurchmesserAussen / 2;
-                        dSchwerpunktZ = dLängeRohr / 2;
-                        dIX = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-                        dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-                        dGewicht = dVolumen * dDichte;
+                        dSchwerpunktX = (dDurchmesserAussen / 2) * dFaktor;
+                        dSchwerpunktY = (dDurchmesserAussen / 2) * dFaktor;
+                        dSchwerpunktZ = (dLänge / 2) * dFaktor;
+                        dIX = (IRohr(dDurchmesserAussen, dDurchmesserInnen)) * dFaktor;
+                        dIY = (IRohr(dDurchmesserAussen, dDurchmesserInnen)) * dFaktor;
+                        dGewicht = dVolumen * dDichte * dFaktor;
+                        dKosten = dGewicht * dPreis * dFaktor;
 
                         // Übergabe Double in String Variablen
                         txtVolumen.Text = Convert.ToString(dVolumen);
                         txtFlaeche.Text = Convert.ToString(dFlaeche);
                         txtMasse.Text = Convert.ToString(dGewicht);
-                        txtPreis.Text = Convert.ToString(dPreis);
+                        txtPreis.Text = Convert.ToString(dKosten);
+
                         txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
                         txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
                         txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
