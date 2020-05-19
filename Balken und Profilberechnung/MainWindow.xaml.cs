@@ -685,7 +685,7 @@ namespace Balken_und_Profilberechnung
 
 
                     //Übergabe der Eingabevariablen in String Variablen
-                    sDurchmesserEingabe = txt3.Text;
+                    sDurchmesserEingabe = txt2.Text;
                     
                     sLängeEingabe = txtLänge.Text;
 
@@ -712,10 +712,7 @@ namespace Balken_und_Profilberechnung
                        
                         
 
-                        if (dLaenge <= 0 || dDurchmesserAussen <= 0)
-                        {
-                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
-                        }
+                        
 
 
                         // Berechnung in Double Variablen
@@ -725,8 +722,8 @@ namespace Balken_und_Profilberechnung
                         this.dSchwerpunktX = Math.Round(dDurchmesser / 2,2);
                         dSchwerpunktY = Math.Round(dDurchmesser / 2,2);
                         dSchwerpunktZ = Math.Round(dLaenge / 2,2);
-                        dIX = Math.Round(IRohr(dDurchmesser),2);
-                        dIY = Math.Round(IRohr(dDurchmesser),2);
+                        dIX = Math.Round(IKreis(dDurchmesser),2);
+                        dIY = Math.Round(IKreis(dDurchmesser),2);
                         dGewicht = Math.Round(dVolumen * dDichte,2);
                         dPreis = Math.Round(dGewicht * 1000 * dPreisProG,2);
 
