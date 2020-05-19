@@ -504,7 +504,7 @@ namespace Balken_und_Profilberechnung
                     break;
 
             }
-
+            
 
 
             switch (Auswahl)
@@ -679,7 +679,147 @@ namespace Balken_und_Profilberechnung
 
                 case "itmRund":
 
+                     string sDurchmesserEingabeAussen;
+                    
 
+                    double dDurchmesserAussen;
+                    
+
+
+                    //Übergabe der Eingabevariablen in String Variablen
+                    sDurchmesserEingabeAussen = txt3.Text;
+                    
+                    sLängeEingabe = txtLänge.Text;
+
+                    //Prüfung der Eingaben
+                    if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sLängeEingabe)) == false)
+                    {
+                        MessageBox.Show("Eingabe ist keine Zahl.");
+                    }
+
+                    if ((sDurchmesserEingabeAussen.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
+                    {
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
+
+
+                    else
+                    {
+                        MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+                        //Übergabe der String Variablen nach Double
+                        dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
+                        dLaenge = Convert.ToDouble(sLängeEingabe);
+
+
+                        if (dDurchmesserInnen > dDurchmesserAussen)
+                        {
+                            MessageBox.Show("Der Innendurchmesser muss kleiner sein als der Außendurchmesser");
+                        }
+
+                        if (dLaenge <= 0 || dDurchmesserAussen <= 0 || dDurchmesserInnen <= 0)
+                        {
+                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                        }
+
+
+                        // Berechnung in Double Variablen
+                        //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                        dFlaeche = Math.Round(Kreisfläche(dDurchmesserAussen),2);
+                        dVolumen = Math.Round(dFlaeche * dLaenge,2);
+                        this.dSchwerpunktX = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktY = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktZ = Math.Round(dLaenge / 2,2);
+                        dIX = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dIY = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dGewicht = Math.Round(dVolumen * dDichte,2);
+                        dPreis = Math.Round(dGewicht * 1000 * dPreisProG,2);
+
+                        // Übergabe Double in String Variablen
+                        txtVolumen.Text = Convert.ToString(dVolumen);
+                        txtFlaeche.Text = Convert.ToString(dFlaeche);
+                        txtMasse.Text = Convert.ToString(dGewicht);
+                        txtPreis.Text = Convert.ToString(dPreisProG);
+                        txtSchwerpunktX.Text = Convert.ToString(this.dSchwerpunktX);
+                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
+                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
+                        txtIX.Text = Convert.ToString(dIX);
+                        txtIY.Text = Convert.ToString(dIY);
+
+                    }
+
+                    break;
+
+
+                case "itmRohr": //Rohr
+
+                    string sDurchmesserEingabeAussen;
+                    string sDurchmesserEingabeInnen;
+
+                    double dDurchmesserAussen;
+                    double dDurchmesserInnen;
+
+
+                    //Übergabe der Eingabevariablen in String Variablen
+                    sDurchmesserEingabeAussen = txt3.Text;
+                    sDurchmesserEingabeInnen = txt2.Text;
+                    sLängeEingabe = txtLänge.Text;
+
+                    //Prüfung der Eingaben
+                    if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sDurchmesserEingabeInnen) || PrüfungZahl(sLängeEingabe)) == false)
+                    {
+                        MessageBox.Show("Eingabe ist keine Zahl.");
+                    }
+
+                    if ((sDurchmesserEingabeAussen.Contains(" ") || sDurchmesserEingabeInnen.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
+                    {
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
+
+
+                    else
+                    {
+                        MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+                        //Übergabe der String Variablen nach Double
+                        dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
+                        dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
+                        dLaenge = Convert.ToDouble(sLängeEingabe);
+
+
+                        if (dDurchmesserInnen > dDurchmesserAussen)
+                        {
+                            MessageBox.Show("Der Innendurchmesser muss kleiner sein als der Außendurchmesser");
+                        }
+
+                        if (dLaenge <= 0 || dDurchmesserAussen <= 0 || dDurchmesserInnen <= 0)
+                        {
+                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                        }
+
+
+                        // Berechnung in Double Variablen
+                        //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                        dFlaeche = Math.Round(Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen),2);
+                        dVolumen = Math.Round(dFlaeche * dLaenge,2);
+                        this.dSchwerpunktX = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktY = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktZ = Math.Round(dLaenge / 2,2);
+                        dIX = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dIY = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dGewicht = Math.Round(dVolumen * dDichte,2);
+                        dPreis = Math.Round(dGewicht * 1000 * dPreisProG,2);
+
+                        // Übergabe Double in String Variablen
+                        txtVolumen.Text = Convert.ToString(dVolumen);
+                        txtFlaeche.Text = Convert.ToString(dFlaeche);
+                        txtMasse.Text = Convert.ToString(dGewicht);
+                        txtPreis.Text = Convert.ToString(dPreisProG);
+                        txtSchwerpunktX.Text = Convert.ToString(this.dSchwerpunktX);
+                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
+                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
+                        txtIX.Text = Convert.ToString(dIX);
+                        txtIY.Text = Convert.ToString(dIY);
+
+                    }
 
 
                     break;
