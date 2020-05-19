@@ -649,7 +649,7 @@ namespace Balken_und_Profilberechnung
                             dSchwerpunktY = Math.Round(-1 * (((dRechteck1Fläche * SRechteck(dHöheITProfilH) + dRechteck2Fläche * SRechteck(dHöheTIProfilh) + dRechteck3Fläche * SRechteck(dHöheTIProfilh)) / dFlaeche) * dFaktor), 2);    //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
                             dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);                                                                               //Der Schwerpunkt in Balkenlänge befindet sich mittig
                             dIY = Math.Round((IRechteck(dbErsatz, dHöheITProfilH) + IRechteck(dBreiteITProfilB, dhErsatz)) / 12, 2);                                  //Berechnung des Flächenträgheitsmomentes um die Y Achse
-                                                                                                                                                                      //double dIX = ((IRechteck(hHöheRip, bBreiteRip) + IRechteck(hHöhe, bBreite)) / 12); //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
+                            dIX = ((IRechteck(dhErsatz, dBreiteITProfilB) + IRechteck(dHöheITProfilH, dbErsatz)) / 12);                                          //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
                             dGewicht = Math.Round((dVolumen / 1000000000) * dDichte, 4);
                             dPreis = dGewicht * 1000 * dPreisProG;
 
@@ -873,21 +873,22 @@ namespace Balken_und_Profilberechnung
 
                         else
                         {
-                            double dRechteck1Fläche = FlaecheRechteck(dBreiteIIProfilB, dHöheIIProfilH);                                                                 //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
-                            double dRechteck2Fläche = FlaecheRechteck(dIBreiteb1, dHöheIIProfilh);                                                          //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
+                            double dRechteck1Fläche = FlaecheRechteck(dBreiteIIProfilB, dHöheIIProfilH);                                                                                                                    //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
+                            double dRechteck2Fläche = FlaecheRechteck(dIBreiteb1, dHöheIIProfilh);                                                                                                                          //mehrfach wiederkehrende Unterprogrammaufrufe wurden ausgegliedert
                             double dRechteck3Fläche = FlaecheRechteck(dIBreiteb2, dHöheIIProfilh);
 
                             double dhErsatz = dHöheIIProfilH - dHöheIIProfilh;
                             double dbErsatz = dIBreiteb1 + dIBreiteb2 + dBreiteIIProfilB;
 
 
-                            dFlaeche = Math.Round((dRechteck1Fläche + dRechteck2Fläche + dRechteck3Fläche) * dFaktor, 4);                                                                   //Flächenberechnung der I-Träger wird aus zwei Rechtecken zusammengesetzt die über das Unterprogramm Rechteck() aus der Balkenberechnung
-                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 4);                                                                               // Volumen wird durch die bereits berechnete Fläche und die Trägerlänge berechnet
-                            dSchwerpunktX = Math.Round(((dRechteck1Fläche * SRechteck(dBreiteIIProfilB) + dRechteck2Fläche * SRechteck(dIBreiteb1) + dRechteck3Fläche * SRechteck(dIBreiteb2)) / dFlaeche) * dFaktor, 2);     //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
+                            dFlaeche = Math.Round((dRechteck1Fläche + dRechteck2Fläche + dRechteck3Fläche) * dFaktor, 4);                                                                                                   //Flächenberechnung der I-Träger wird aus zwei Rechtecken zusammengesetzt die über das Unterprogramm Rechteck() aus der Balkenberechnung
+                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 4);                                                                                                                                         //Volumen wird durch die bereits berechnete Fläche und die Trägerlänge berechnet
+                            dSchwerpunktX = Math.Round(((dRechteck1Fläche * SRechteck(dBreiteIIProfilB) + dRechteck2Fläche * SRechteck(dIBreiteb1) + dRechteck3Fläche * SRechteck(dIBreiteb2)) / dFlaeche) * dFaktor, 2);   //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
                             dSchwerpunktY = Math.Round(-1 * (((dRechteck1Fläche * SRechteck(dHöheIIProfilH) + dRechteck2Fläche * SRechteck(dHöheIIProfilh) + dRechteck3Fläche * SRechteck(dHöheIIProfilh)) / dFlaeche) * dFaktor), 2);    //Schwerpunkt wird durch Zusammenrechnung der einzelschwerpunkte der Rechtecke berechnet
-                            dSchwerpunktZ = Math.Round(dLaenge / 2 * dFaktor, 2);                                                                               //Der Schwerpunkt in Balkenlänge befindet sich mittig
-                            dIY = Math.Round((IRechteck(dbErsatz, dHöheIIProfilH) + IRechteck(dBreiteIIProfilB, dhErsatz)) / 12, 2);                                  //Berechnung des Flächenträgheitsmomentes um die Y Achse
-                                                                                                                                                                      //double dIX = ((IRechteck(hHöheRip, bBreiteRip) + IRechteck(hHöhe, bBreite)) / 12); //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
+                            dSchwerpunktZ = Math.Round(dLaenge / 2 * dFaktor, 2);                                                                                                                                           //Der Schwerpunkt in Balkenlänge befindet sich mittig
+                            dIY = Math.Round((IRechteck(dbErsatz, dHöheIIProfilH) + IRechteck(dBreiteIIProfilB, dhErsatz)) / 12, 2);                                                                                        //Berechnung des Flächenträgheitsmomentes um die Y Achse
+                            dIX = ((IRechteck(dhErsatz, dBreiteIIProfilB) + IRechteck(dHöheIIProfilH, dbErsatz)) / 12);                                                                                                            //Berechnung des Flächenträgheitsmomentes um die X Achse (Steiner Anteil konnte ich noch nicht implementieren) 
+                            
                             dGewicht = Math.Round(dVolumen / 1000000000 * dDichte, 4);
                             dPreis = dGewicht * 1000 * dPreisProG;
 
