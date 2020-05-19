@@ -717,26 +717,26 @@ namespace Balken_und_Profilberechnung
 
                         // Berechnung in Double Variablen
                         //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
-                        dFlaeche = Math.Round(Kreisfläche(dDurchmesser),2);
-                        dVolumen = Math.Round(dFlaeche * dLaenge,2);
-                        this.dSchwerpunktX = Math.Round(dDurchmesser / 2,2);
-                        dSchwerpunktY = Math.Round(dDurchmesser / 2,2);
-                        dSchwerpunktZ = Math.Round(dLaenge / 2,2);
-                        dIX = Math.Round(IKreis(dDurchmesser),2);
-                        dIY = Math.Round(IKreis(dDurchmesser),2);
+                        dFlaeche = Math.Round(Kreisfläche(dDurchmesser * dFaktor),2);
+                        dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor,2);
+                        this.dSchwerpunktX = Math.Round(dDurchmesser / 2 * dFaktor,2);
+                        dSchwerpunktY = Math.Round(dDurchmesser / 2 * dFaktor,2);
+                        dSchwerpunktZ = Math.Round(dLaenge / 2 * dFaktor,2);
+                        dIX = Math.Round(IKreis(dDurchmesser * dFaktor * dFaktor * dFaktor * dFaktor),2);
+                        dIY = Math.Round(IKreis(dDurchmesser * dFaktor * dFaktor * dFaktor * dFaktor),2);
                         dGewicht = Math.Round(dVolumen * dDichte,2);
                         dPreis = Math.Round(dGewicht * 1000 * dPreisProG,2);
 
                         // Übergabe Double in String Variablen
-                        txtVolumen.Text = Convert.ToString(dVolumen);
-                        txtFlaeche.Text = Convert.ToString(dFlaeche);
-                        txtMasse.Text = Convert.ToString(dGewicht);
-                        txtPreis.Text = Convert.ToString(dPreisProG);
-                        txtSchwerpunktX.Text = Convert.ToString(this.dSchwerpunktX);
-                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
-                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
-                        txtIX.Text = Convert.ToString(dIX);
-                        txtIY.Text = Convert.ToString(dIY);
+                        txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
+                        txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
+                        txtMasse.Text = Convert.ToString(dGewicht) + "kg";
+                        txtPreis.Text = Convert.ToString(dPreisProG) + "€";
+                        txtSchwerpunktX.Text = Convert.ToString(this.dSchwerpunktX) + "mm";
+                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
+                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
+                        txtIX.Text = Convert.ToString(dIX) + "mm^4";
+                        txtIY.Text = Convert.ToString(dIY) + "mm^4";
 
                     }
 
