@@ -673,6 +673,86 @@ namespace Balken_und_Profilberechnung
 
 
                 case "itmVierkantrohr":
+                    string sBreiteI;
+                    string sHöheI;
+                    string sBreiteA;
+                    string sHöheA;
+
+                    double dBreiteI;
+                    double dHöheI;
+                    double dBreiteA;
+                    double dHöheA;
+
+                    //Übergabe der Eingabevariablen in String Variablen
+                    sBreiteI = txt4.Text;
+                    sHöheI = txt5.Text;
+                    sBreiteA = txt2.Text;
+                    sHöheA = txt3.Text;
+                    sLängeEingabe = txtLänge.Text;
+
+                    if ((PrüfungZahl(sBreiteA) || PrüfungZahl(sHöheA) || PrüfungZahl(sBreiteI) || PrüfungZahl(sHöheI) || PrüfungZahl(sLängeEingabe)) == false)
+                    {
+                        MessageBox.Show("Eingabe ist keine Zahl.");
+                    }
+
+                    if ((sBreiteI.Contains(" ") || sHöheI.Contains(" ") || sBreiteA.Contains(" ") || sHöheA.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
+                    {
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
+
+                    else
+                    {
+                        //Übergabe der String Variablen nach Double
+                        dHöheI = Convert.ToDouble(sHöheI);
+                        dBreiteI = Convert.ToDouble(sBreiteI);
+                        dHöheA = Convert.ToDouble(sHöheA);
+                        dBreiteA = Convert.ToDouble(sBreiteA);
+                        dLaenge = Convert.ToDouble(sLängeEingabe);
+
+                        if (dHöheA > dHöheI)
+                        {
+                            MessageBox.Show("Die äußere Höhe muss größer als die Innere sein");
+                        }
+
+                        if (dBreiteA > dBreiteI)
+                        {
+                            MessageBox.Show("Die äußere Breite muss größer als die Innere sein");
+                        }
+
+                        if (dLaenge <= 0 || dBreiteI <= 0 || dHöheI <= 0 || dBreiteA <= 0 || dHöheA <= 0)
+                        {
+                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+
+                            // Berechnungen in Double Variablen
+                            //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                            dFlaeche = Math.Round((FlaecheRechteck(dBreiteA - dBreiteI, dHöheA - dHöheI)) * dFaktor, 2);
+                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 2);
+                            dSchwerpunktX = Math.Round((dBreiteA - dBreiteI / 2) * dFaktor, 2);
+                            dSchwerpunktY = Math.Round((dBreiteA - dBreiteI / 2) * dFaktor, 2);
+                            dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);
+                            dIX = Math.Round((IRechteck(dBreiteA - dBreiteI, dHöheA - dHöheI)) * dFaktor, 2);
+                            dIY = Math.Round((IRechteck(dHöheA - dHöheI, dBreiteA - dBreiteI)) * dFaktor, 2);
+                            dGewicht = Math.Round(dVolumen / 100000000* dDichte * dFaktor, 2);
+                            dPreis = Math.Round(dGewicht * 1000 * dPreisProG, 2);
+
+                            // Übergabe Double in String Variablen
+                            txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
+                            txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
+                            txtMasse.Text = Convert.ToString(dGewicht) + "kg";
+                            txtPreis.Text = Convert.ToString(dPreis) + "€";
+
+                            txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX) + "mm";
+                            txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
+                            txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
+                            txtIX.Text = Convert.ToString(dIX) + "mm^4";
+                            txtIY.Text = Convert.ToString(dIY) + "mm^4";
+                        }
+                    }
 
                     break;
 
