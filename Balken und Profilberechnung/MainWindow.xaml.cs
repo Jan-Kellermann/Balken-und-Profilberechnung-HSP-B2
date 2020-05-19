@@ -33,7 +33,7 @@ namespace Balken_und_Profilberechnung
         }
         //Erstellung aller Globalen Variablen 
         public string sLängeEingabe;
-        public double dLaenge; 
+        public double dLaenge;
 
         public string Auswahl;
         public string Material;
@@ -42,7 +42,7 @@ namespace Balken_und_Profilberechnung
         public double dDichte;
         public double dGewicht;
         public double dFaktor;
-        
+
         public double dPreisProG;
         public double dPreis;
         public double dVolumen;
@@ -63,9 +63,9 @@ namespace Balken_und_Profilberechnung
 
 
             Auswahl = ((TreeViewItem)e.NewValue).Name.ToString();
-           
- //Auswahl des entsprechenden Brechnungslayouts *********************************************************************************           
-            
+
+            //Auswahl des entsprechenden Brechnungslayouts *********************************************************************************           
+
             if (Auswahl == "itmRechteck")
             {
 
@@ -104,7 +104,7 @@ namespace Balken_und_Profilberechnung
 
                 imTitel.Visibility = Visibility.Hidden;
                 imFigur.Visibility = Visibility.Visible;
-                
+
 
                 imFigur.Source = new BitmapImage(new Uri("Rechteck.PNG", UriKind.Relative));
 
@@ -423,7 +423,7 @@ namespace Balken_und_Profilberechnung
 
             }
 
-            if (Auswahl == "itmStartseite") 
+            if (Auswahl == "itmStartseite")
             {
 
                 imTitel.Visibility = Visibility.Visible;
@@ -441,7 +441,7 @@ namespace Balken_und_Profilberechnung
 
         //Start der Berechnung***************************************************************************
 
-        
+
         private void btnRechne_Click(object sender, RoutedEventArgs e)
         {
 
@@ -517,74 +517,66 @@ namespace Balken_und_Profilberechnung
                     double dBreite;
                     double dHöhe;
 
-
                     //Übergabe der Eingabevariablen in String Variablen
                     sBreite = txt2.Text;
                     sHöhe = txt3.Text;
                     sLängeEingabe = txtLänge.Text;
 
-
-                    //Übergabe der String Variablen nach Double
-                    dHöhe = Convert.ToDouble(sHöhe);
-                    dBreite = Convert.ToDouble(sBreite);
-                    dLaenge = Convert.ToDouble(sLängeEingabe);
-
-                    //Innendurchmesser kleiner?
-                    if (dHöhe > dBreite)
+                    if ((PrüfungZahl(sBreite) || PrüfungZahl(sHöhe) || PrüfungZahl(sLängeEingabe)) == false)
                     {
-                        MessageBox.Show("Die Höhe muss kleiner sein als die Breite");
+                        MessageBox.Show("Eingabe ist keine Zahl.");
                     }
 
-                    //Maße korrekt
+                    if ((sBreite.Contains(" ") || sHöhe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
+                    {
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
+
                     else
                     {
-                        //Variablen für Case Rechteck
-
-                        //Übergabe der Eingabevariablen in String Variablen
-                        sBreite = txt2.Text;
-                        sHöhe = txt3.Text;
-                        sLängeEingabe = txtLänge.Text;
-
-
                         //Übergabe der String Variablen nach Double
                         dHöhe = Convert.ToDouble(sHöhe);
                         dBreite = Convert.ToDouble(sBreite);
                         dLaenge = Convert.ToDouble(sLängeEingabe);
 
-                        //Innendurchmesser kleiner?
-                        if (dHöhe > dBreite)
+                        if (dBreite > dHöhe)
                         {
-                            MessageBox.Show("Die Höhe muss kleiner sein als die Breite");
+                            MessageBox.Show("Die Höhe muss größer sein als die Breite");
                         }
 
-                        //Maße korrekt
+                        if (dLaenge <= 0 || dBreite <= 0 || dHöhe <= 0)
+                        {
+                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                        }
 
+                        else
+                        {
+                            MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
 
-                        MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+                            // Berechnungen in Double Variablen
+                            //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                            dFlaeche = Math.Round((FlaecheRechteck(dBreite, dHöhe)) * dFaktor,2);
+                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor,2);
+                            dSchwerpunktX = Math.Round((dBreite / 2) * dFaktor,2);
+                            dSchwerpunktY = Math.Round((dBreite / 2) * dFaktor,2);
+                            dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor,2);
+                            dIX = Math.Round((IRechteck(dBreite, dHöhe)) * dFaktor,2);
+                            dIY = Math.Round((IRechteck(dHöhe, dBreite)) * dFaktor,2);
+                            dGewicht = Math.Round(dVolumen * dDichte * dFaktor,2);
+                            dPreis = Math.Round(dGewicht * 1000*dPreisProG,2);
 
-                        // Berechnungen in Double Variablen
-                        dFlaeche = (FlaecheRechteck(dBreite, dHöhe)) * dFaktor;
-                        dVolumen = dFlaeche * dLaenge * dFaktor;
-                        dSchwerpunktX = (dBreite / 2) * dFaktor;
-                        dSchwerpunktY = (dBreite / 2) * dFaktor;
-                        dSchwerpunktZ = (dLaenge / 2) * dFaktor;
-                        dIX = (IRechteck(dBreite, dHöhe)) * dFaktor;
-                        dIY = (IRechteck(dHöhe, dBreite)) * dFaktor;
-                        dGewicht = dVolumen * dDichte * dFaktor;
-                        dPreis = dGewicht * dPreisProG * dFaktor;
+                            // Übergabe Double in String Variablen
+                            txtVolumen.Text = Convert.ToString(dVolumen);
+                            txtFlaeche.Text = Convert.ToString(dFlaeche);
+                            txtMasse.Text = Convert.ToString(dGewicht);
+                            txtPreis.Text = Convert.ToString(dPreis);
 
-                        // Übergabe Double in String Variablen
-                        txtVolumen.Text = Convert.ToString(dVolumen);
-                        txtFlaeche.Text = Convert.ToString(dFlaeche);
-                        txtMasse.Text = Convert.ToString(dGewicht);
-                        txtPreis.Text = Convert.ToString(dPreis);
-
-                        txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
-                        txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
-                        txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
-                        txtIX.Text = Convert.ToString(dIX);
-                        txtIY.Text = Convert.ToString(dIY);
-
+                            txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX);
+                            txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY);
+                            txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
+                            txtIX.Text = Convert.ToString(dIX);
+                            txtIY.Text = Convert.ToString(dIY);
+                        }
                     }
 
                     break;
@@ -607,14 +599,14 @@ namespace Balken_und_Profilberechnung
                     double dBreiteITProfilB;
                     double dHöheITProfilH;
 
-                    
-                        
 
-                     if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
-                     {
+
+
+                    if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
+                    {
                         MessageBox.Show("Eingabe ist keine Zahl.");
 
-                     }
+                    }
 
                     if ((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true)
 
@@ -675,7 +667,7 @@ namespace Balken_und_Profilberechnung
                         }
 
                     }
-                                       
+
 
                     break;
 
@@ -695,48 +687,61 @@ namespace Balken_und_Profilberechnung
 
                 case "itmRohr": //Rohr
 
-
                     string sDurchmesserEingabeAussen;
                     string sDurchmesserEingabeInnen;
-                    string sLängeEingabeRohr;
-
 
                     double dDurchmesserAussen;
                     double dDurchmesserInnen;
-                    double dLängeRohr;
 
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sDurchmesserEingabeAussen = txt3.Text;
                     sDurchmesserEingabeInnen = txt2.Text;
-                    sLängeEingabeRohr = txtLänge.Text;
+                    sLängeEingabe = txtLänge.Text;
 
-
-                    //Übergabe der String Variablen nach Double
-                    dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
-                    dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
-                    dLängeRohr = Convert.ToDouble(sLängeEingabeRohr);
-
-                    //Innendurchmesser kleiner?
-                    if (dDurchmesserInnen > dDurchmesserAussen)
+                    //Prüfung der Eingaben
+                    if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sDurchmesserEingabeInnen) || PrüfungZahl(sLängeEingabe)) == false)
                     {
-                        MessageBox.Show("Der Innendurchmesser muss kleiner sein als der Außendurchmesser");
+                        MessageBox.Show("Eingabe ist keine Zahl.");
                     }
 
-                    //Durchmesser korrekt
+                    if ((sDurchmesserEingabeAussen.Contains(" ") || sDurchmesserEingabeInnen.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
+                    {
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                    }
+
+
                     else
                     {
+                        MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+                        //Übergabe der String Variablen nach Double
+                        dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
+                        dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);
+                        dLaenge = Convert.ToDouble(sLängeEingabe);
+
+
+                        if (dDurchmesserInnen > dDurchmesserAussen)
+                        {
+                            MessageBox.Show("Der Innendurchmesser muss kleiner sein als der Außendurchmesser");
+                        }
+
+                        if (dLaenge <= 0 || dDurchmesserAussen <= 0 || dDurchmesserInnen <= 0)
+                        {
+                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                        }
+
+
                         // Berechnung in Double Variablen
-                        dFlaeche = Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen);
-                        dVolumen = dFlaeche * dLängeRohr;
-
-
-                        this.dSchwerpunktX = dDurchmesserAussen / 2;
-                        dSchwerpunktY = dDurchmesserAussen / 2;
-                        dSchwerpunktZ = dLängeRohr / 2;
-                        dIX = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-                        dIY = IRohr(dDurchmesserAussen, dDurchmesserInnen);
-                        dGewicht = dVolumen * dDichte;
+                        //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                        dFlaeche = Math.Round(Kreisfläche(dDurchmesserAussen) - Kreisfläche(dDurchmesserInnen),2);
+                        dVolumen = Math.Round(dFlaeche * dLaenge,2);
+                        this.dSchwerpunktX = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktY = Math.Round(dDurchmesserAussen / 2,2);
+                        dSchwerpunktZ = Math.Round(dLaenge / 2,2);
+                        dIX = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dIY = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen),2);
+                        dGewicht = Math.Round(dVolumen * dDichte,2);
+                        dPreis = Math.Round(dGewicht * 1000 * dPreisProG,2);
 
                         // Übergabe Double in String Variablen
                         txtVolumen.Text = Convert.ToString(dVolumen);
@@ -748,8 +753,8 @@ namespace Balken_und_Profilberechnung
                         txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ);
                         txtIX.Text = Convert.ToString(dIX);
                         txtIY.Text = Convert.ToString(dIY);
-                    }
 
+                    }
 
                     break;
 
