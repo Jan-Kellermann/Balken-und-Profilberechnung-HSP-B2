@@ -46,6 +46,7 @@
             <ComboBoxItem>Stahl</ComboBoxItem>
             <ComboBoxItem>Aluminium</ComboBoxItem>
             <ComboBoxItem>Kunststoff</ComboBoxItem>
+            <ComboBoxItem>Weißer Zwerg</ComboBoxItem>
         </ComboBox>
 
         <Label x:Name="lblEinheit" Content="Einheit:" HorizontalAlignment="Left" Margin="158,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
@@ -118,10 +119,10 @@
 
 
         <Label x:Name="lblFlächenträgheitsmoment" Content="Flächenträgheitsmoment:" HorizontalAlignment="Left" Margin="365,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtIX" HorizontalAlignment="Left" Height="23" Margin="542,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <TextBox x:Name="txtIX" HorizontalAlignment="Left" Height="23" Margin="542,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
         <Label x:Name="lblIX" Content="Ix:" HorizontalAlignment="Left" Margin="516,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtIY" HorizontalAlignment="Left" Height="23" Margin="627,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
-        <Label x:Name="lblIY" Content="Iy:" HorizontalAlignment="Left" Margin="602,334,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIY" HorizontalAlignment="Left" Height="23" Margin="657,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" BorderBrush="White" IsUndoEnabled="False" IsReadOnly="True"/>
+        <Label x:Name="lblIY" Content="Iy:" HorizontalAlignment="Left" Margin="632,334,0,0" VerticalAlignment="Top"/>
 
 
 
