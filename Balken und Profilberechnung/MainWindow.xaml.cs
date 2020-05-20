@@ -607,11 +607,11 @@ namespace Balken_und_Profilberechnung
 
 
 
-                    if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
+                    //if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
+                    //{
+                       // MessageBox.Show("Eingabe ist keine Zahl.");
 
-                    }
+                    //}
                     
                         //if ((sLängeEingabe.Contains("") || sBreiteb1Eingabe.Contains("") || sBreiteb2Eingabe.Contains("") || sHöheTIProfilhEingabe.Contains("") || sBreiteITProfilBEingabe.Contains("") || sHöheITProfilHEingabe.Contains("")) == true)
 
@@ -705,10 +705,10 @@ namespace Balken_und_Profilberechnung
                     sHöheA = txt3.Text;
                     sLängeEingabe = txtLänge.Text;
 
-                    if ((PrüfungZahl(sBreiteA) || PrüfungZahl(sHöheA) || PrüfungZahl(sBreiteI) || PrüfungZahl(sHöheI) || PrüfungZahl(sLängeEingabe)) == false)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
-                    }
+                    //if ((PrüfungZahl(sBreiteA) || PrüfungZahl(sHöheA) || PrüfungZahl(sBreiteI) || PrüfungZahl(sHöheI) || PrüfungZahl(sLängeEingabe)) == false)
+                    //{
+                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //}
 
                     if ((sBreiteI.Contains(" ") || sHöheI.Contains(" ") || sBreiteA.Contains(" ") || sHöheA.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
                     {
@@ -785,10 +785,10 @@ namespace Balken_und_Profilberechnung
                     sLängeEingabe = txtLänge.Text;
 
                     //Prüfung der Eingaben
-                    if ((PrüfungZahl(sDurchmesserEingabe) || PrüfungZahl(sLängeEingabe)) == true)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
-                    }
+                   // if ((PrüfungZahl(sDurchmesserEingabe) || PrüfungZahl(sLängeEingabe)) == true)
+                    //{
+                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //}
 
                     if ((sDurchmesserEingabe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
                     {
@@ -854,10 +854,10 @@ namespace Balken_und_Profilberechnung
                     sLängeEingabe = txtLänge.Text;
 
                     //Prüfung der Eingaben
-                    if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sDurchmesserEingabeInnen) || PrüfungZahl(sLängeEingabe)) == true)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
-                    }
+                    //if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sDurchmesserEingabeInnen) || PrüfungZahl(sLängeEingabe)) == true)
+                    //{
+                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //}
 
                     if ((sDurchmesserEingabeAussen.Contains(" ") || sDurchmesserEingabeInnen.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
                     {
@@ -935,11 +935,11 @@ namespace Balken_und_Profilberechnung
 
 
 
-                    if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sIBreiteb1Eingabe) || PrüfungZahl(sIBreiteb2Eingabe) || PrüfungZahl(sHöheIIProfilhEingabe) || PrüfungZahl(sBreiteIIProfilBEingabe) || PrüfungZahl(sHöheIIProfilHEingabe)) == false)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
+                    //if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sIBreiteb1Eingabe) || PrüfungZahl(sIBreiteb2Eingabe) || PrüfungZahl(sHöheIIProfilhEingabe) || PrüfungZahl(sBreiteIIProfilBEingabe) || PrüfungZahl(sHöheIIProfilHEingabe)) == false)
+                    //{
+                        //MessageBox.Show("Eingabe ist keine Zahl.");
 
-                    }
+                    //}
 
                     if ((sLängeEingabe.Contains(" ") || sIBreiteb1Eingabe.Contains(" ") || sIBreiteb2Eingabe.Contains(" ") || sHöheIIProfilhEingabe.Contains(" ") || sBreiteIIProfilBEingabe.Contains(" ") || sHöheIIProfilHEingabe.Contains(" ")) == true)
 
