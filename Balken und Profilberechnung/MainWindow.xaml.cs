@@ -527,14 +527,27 @@ namespace Balken_und_Profilberechnung
                     sHöhe = txt3.Text;
                     sLängeEingabe = txtLänge.Text;
 
-                    if ((PrüfungZahl(sBreite) || PrüfungZahl(sHöhe) || PrüfungZahl(sLängeEingabe)) == false)
+
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sBreite) || string.IsNullOrEmpty(sHöhe) || string.IsNullOrEmpty(sLängeEingabe))
+                        {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
+
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sBreite, out dBreite) || (!Double.TryParse(sHöhe, out dHöhe)) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");                        
+                    }
+
+                    if ((PrüfungZahl(sBreite) || PrüfungZahl(sHöhe) || PrüfungZahl(sLängeEingabe)) == true)
                     {
                         MessageBox.Show("Eingabe ist keine Zahl.");
                     }
 
                     if ((sBreite.Contains(" ") || sHöhe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
                     {
-                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
+                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten.");
                     }
 
                     else
@@ -605,24 +618,34 @@ namespace Balken_und_Profilberechnung
                     double dHöheITProfilH;
 
 
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sBreiteb1Eingabe) || string.IsNullOrEmpty(sBreiteb2Eingabe) || string.IsNullOrEmpty(sHöheITProfilHEingabe) || string.IsNullOrEmpty(sHöheTIProfilhEingabe) || string.IsNullOrEmpty(sBreiteITProfilBEingabe) || string.IsNullOrEmpty(sLängeEingabe))
+                    {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
 
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sBreiteb1Eingabe, out dBreiteb1) || (!Double.TryParse(sBreiteb2Eingabe, out dBreiteb2)) ||  (!Double.TryParse(sHöheITProfilHEingabe, out dHöheITProfilH)) || (!Double.TryParse(sBreiteITProfilBEingabe, out dBreiteITProfilB)) || (!Double.TryParse(sHöheTIProfilhEingabe, out dHöheTIProfilh)) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");
+                    }
 
                     //if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sBreiteb1Eingabe) || PrüfungZahl(sBreiteb2Eingabe) || PrüfungZahl(sHöheTIProfilhEingabe) || PrüfungZahl(sBreiteITProfilBEingabe) || PrüfungZahl(sHöheITProfilHEingabe)) == false)
                     //{
-                       // MessageBox.Show("Eingabe ist keine Zahl.");
+                    // MessageBox.Show("Eingabe ist keine Zahl.");
 
                     //}
-                    
-                        //if ((sLängeEingabe.Contains("") || sBreiteb1Eingabe.Contains("") || sBreiteb2Eingabe.Contains("") || sHöheTIProfilhEingabe.Contains("") || sBreiteITProfilBEingabe.Contains("") || sHöheITProfilHEingabe.Contains("")) == true)
 
-                        //{
-                            
-                           // MessageBox.Show("Es müssen alle Felder eine Eingabe enthalten");
-                        //}
+                    //if ((sLängeEingabe.Contains("") || sBreiteb1Eingabe.Contains("") || sBreiteb2Eingabe.Contains("") || sHöheTIProfilhEingabe.Contains("") || sBreiteITProfilBEingabe.Contains("") || sHöheITProfilHEingabe.Contains("")) == true)
 
-                        //else
-                       // {
-                            if((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true)
+                    //{
+
+                    // MessageBox.Show("Es müssen alle Felder eine Eingabe enthalten");
+                    //}
+
+                    //else
+                    // {
+                    if ((sLängeEingabe.Contains(" ") || sBreiteb1Eingabe.Contains(" ") || sBreiteb2Eingabe.Contains(" ") || sHöheTIProfilhEingabe.Contains(" ") || sBreiteITProfilBEingabe.Contains(" ") || sHöheITProfilHEingabe.Contains(" ")) == true)
                             {
                                 MessageBox.Show("Eingabe darf keine Leerzeichen enthalten");
                             }
@@ -705,9 +728,21 @@ namespace Balken_und_Profilberechnung
                     sHöheA = txt3.Text;
                     sLängeEingabe = txtLänge.Text;
 
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sBreiteI) || string.IsNullOrEmpty(sHöheI) || string.IsNullOrEmpty(sBreiteA) || string.IsNullOrEmpty(sHöheA)  || string.IsNullOrEmpty(sLängeEingabe))
+                    {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
+
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sBreiteI, out dBreiteI) || (!Double.TryParse(sHöheI, out dHöheI)) || (!Double.TryParse(sBreiteA, out dBreiteA)) || (!Double.TryParse(sHöheA, out dHöheA))  || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");
+                    }
+
                     //if ((PrüfungZahl(sBreiteA) || PrüfungZahl(sHöheA) || PrüfungZahl(sBreiteI) || PrüfungZahl(sHöheI) || PrüfungZahl(sLängeEingabe)) == false)
                     //{
-                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //MessageBox.Show("Eingabe ist keine Zahl.");
                     //}
 
                     if ((sBreiteI.Contains(" ") || sHöheI.Contains(" ") || sBreiteA.Contains(" ") || sHöheA.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
@@ -784,10 +819,22 @@ namespace Balken_und_Profilberechnung
                     
                     sLängeEingabe = txtLänge.Text;
 
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sDurchmesserEingabe) ||  string.IsNullOrEmpty(sLängeEingabe))
+                    {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
+
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sDurchmesserEingabe, out dDurchmesser) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");
+                    }
+
                     //Prüfung der Eingaben
-                   // if ((PrüfungZahl(sDurchmesserEingabe) || PrüfungZahl(sLängeEingabe)) == true)
+                    // if ((PrüfungZahl(sDurchmesserEingabe) || PrüfungZahl(sLängeEingabe)) == true)
                     //{
-                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //MessageBox.Show("Eingabe ist keine Zahl.");
                     //}
 
                     if ((sDurchmesserEingabe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
@@ -853,10 +900,22 @@ namespace Balken_und_Profilberechnung
                     sDurchmesserEingabeInnen = txt2.Text;
                     sLängeEingabe = txtLänge.Text;
 
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sDurchmesserEingabeAussen) || string.IsNullOrEmpty(sDurchmesserEingabeInnen) || string.IsNullOrEmpty(sLängeEingabe))
+                    {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
+
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sDurchmesserEingabeAussen, out dDurchmesserAussen) || (!Double.TryParse(sDurchmesserEingabeInnen, out dDurchmesserInnen)) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");
+                    }
+
                     //Prüfung der Eingaben
                     //if ((PrüfungZahl(sDurchmesserEingabeAussen) || PrüfungZahl(sDurchmesserEingabeInnen) || PrüfungZahl(sLängeEingabe)) == true)
                     //{
-                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //MessageBox.Show("Eingabe ist keine Zahl.");
                     //}
 
                     if ((sDurchmesserEingabeAussen.Contains(" ") || sDurchmesserEingabeInnen.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
@@ -933,11 +992,21 @@ namespace Balken_und_Profilberechnung
                     double dHöheIIProfilH;
 
 
+                    //Messagebox wenn Feld ist leer
+                    if (string.IsNullOrEmpty(sIBreiteb1Eingabe) || string.IsNullOrEmpty(sIBreiteb2Eingabe) || string.IsNullOrEmpty(sHöheIIProfilHEingabe) || string.IsNullOrEmpty(sHöheIIProfilhEingabe) || string.IsNullOrEmpty(sBreiteIIProfilBEingabe) || string.IsNullOrEmpty(sLängeEingabe))
+                    {
+                        MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
+                    }
 
+                    //Prüfung ob es Zahl ist
+                    if (!Double.TryParse(sIBreiteb1Eingabe, out dBreiteb1) || (!Double.TryParse(sIBreiteb2Eingabe, out dBreiteb2)) || (!Double.TryParse(sHöheIIProfilHEingabe, out dHöheITProfilH)) || (!Double.TryParse(sBreiteIIProfilBEingabe, out dBreiteITProfilB)) || (!Double.TryParse(sHöheIIProfilhEingabe, out dHöheTIProfilh)) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
+                    {
+                        MessageBox.Show("Eingabe muss eine Zahl sein.");
+                    }
 
                     //if ((PrüfungZahl(sLängeEingabe) || PrüfungZahl(sIBreiteb1Eingabe) || PrüfungZahl(sIBreiteb2Eingabe) || PrüfungZahl(sHöheIIProfilhEingabe) || PrüfungZahl(sBreiteIIProfilBEingabe) || PrüfungZahl(sHöheIIProfilHEingabe)) == false)
                     //{
-                        //MessageBox.Show("Eingabe ist keine Zahl.");
+                    //MessageBox.Show("Eingabe ist keine Zahl.");
 
                     //}
 
@@ -1077,6 +1146,7 @@ namespace Balken_und_Profilberechnung
         {
             int i = 0;
             bool result = int.TryParse(Eingabe, out i);
+            
 
             return result;
         }
