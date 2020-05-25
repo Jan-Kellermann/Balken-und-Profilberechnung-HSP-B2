@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using INFITF;
+using MECMOD;
+using PARTITF;
+
 
 
 
@@ -24,8 +28,9 @@ namespace Balken_und_Profilberechnung
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
+        CatiaAnbindung CC = new CatiaAnbindung();
 
         public MainWindow()
         {
@@ -1177,6 +1182,18 @@ namespace Balken_und_Profilberechnung
 
         private void itmEVoll_GotFocus(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (CC.CATIALaeuft().Equals(false))
+            {
+
+                MessageBox.Show("Catia läuft nicht!");
+
+            }
 
         }
     }

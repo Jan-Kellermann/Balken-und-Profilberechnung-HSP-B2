@@ -149,6 +149,7 @@
 
         <Image HorizontalAlignment="Left" Height="100" Margin="575,136,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lblStartseite" Content="Legen Sie los!" HorizontalAlignment="Left" Height="58" Margin="347,366,0,0" VerticalAlignment="Top" Width="244" RenderTransformOrigin="0.585,-0.841" FontSize="36" Visibility="Visible"/>
+        <Button x:Name="lbl_CatiaStart" Content="Catia Start" HorizontalAlignment="Left" Height="26" Margin="40,383,0,0" VerticalAlignment="Top" Width="77" Click="lbl_CatiaStart_Click"/>
 
 
 
