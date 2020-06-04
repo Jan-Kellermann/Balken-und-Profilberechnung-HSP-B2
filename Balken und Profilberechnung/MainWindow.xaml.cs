@@ -535,73 +535,71 @@ namespace Balken_und_Profilberechnung
 
                     //Messagebox wenn Feld ist leer
                     if (string.IsNullOrEmpty(sBreite) || string.IsNullOrEmpty(sHöhe) || string.IsNullOrEmpty(sLängeEingabe))
-                        {
+                    {
                         MessageBox.Show("Eingabe darf nicht null sein und jedes Feld muss ausgefüllt sein.");
-                    }
-
-                    //Prüfung ob es Zahl ist
-                    if (!Double.TryParse(sBreite, out dBreite) || (!Double.TryParse(sHöhe, out dHöhe)) || (!Double.TryParse(sLängeEingabe, out dLaenge)))
-                    {
-                        MessageBox.Show("Eingabe muss eine Zahl sein.");                        
-                    }
-
-                    if ((PrüfungZahl(sBreite) || PrüfungZahl(sHöhe) || PrüfungZahl(sLängeEingabe)) == true)
-                    {
-                        MessageBox.Show("Eingabe ist keine Zahl.");
-                    }
-
-                    if ((sBreite.Contains(" ") || sHöhe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
-                    {
-                        MessageBox.Show("Eingabe darf keine Leerzeichen enthalten.");
                     }
 
                     else
                     {
-                        //Übergabe der String Variablen nach Double
-                        dHöhe = Convert.ToDouble(sHöhe);
-                        dBreite = Convert.ToDouble(sBreite);
-                        dLaenge = Convert.ToDouble(sLängeEingabe);
 
-                        if (dBreite > dHöhe)
+                        if ((sBreite.Contains(" ") || sHöhe.Contains(" ") || sLängeEingabe.Contains(" ")) == true)
                         {
-                            MessageBox.Show("Die Höhe muss größer sein als die Breite");
+                            MessageBox.Show("Eingabe darf keine Leerzeichen enthalten.");
                         }
-
-                        if (dLaenge <= 0 || dBreite <= 0 || dHöhe <= 0)
-                        {
-                            MessageBox.Show("Ihre Eingaben müssen größer null sein.");
-                        }
-
                         else
                         {
-                            MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
 
-                            // Berechnungen in Double Variablen
-                            //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
-                            dFlaeche = Math.Round((FlaecheRechteck(dBreite, dHöhe)) * dFaktor,2);
-                            dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor,2);
-                            dSchwerpunktX = Math.Round((dBreite / 2) * dFaktor,2);
-                            dSchwerpunktY = Math.Round((dBreite / 2) * dFaktor,2);
-                            dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor,2);
-                            dIX = Math.Round((IRechteck(dBreite, dHöhe)) * dFaktor,2);
-                            dIY = Math.Round((IRechteck(dHöhe, dBreite)) * dFaktor,2);
-                            dGewicht = Math.Round(dVolumen * dDichte * dFaktor/ 1000000000, 4);
-                            dPreis = Math.Round(dGewicht * 1000*dPreisProG, 4);
+                            //Prüfung ob es Zahl ist
 
-                            // Übergabe Double in String Variablen
-                            txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
-                            txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
-                            txtMasse.Text = Convert.ToString(dGewicht) + "kg";
-                            txtPreis.Text = Convert.ToString(dPreis) + "€";
+                            if (!Double.TryParse(sBreite, out dBreite) || !Double.TryParse(sHöhe, out dHöhe) || !Double.TryParse(sLängeEingabe, out dLaenge))
+                            {
+                                MessageBox.Show("Eingabe muss eine Zahl sein.");
+                            }
 
-                            txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX) + "mm";
-                            txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
-                            txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
-                            txtIX.Text = Convert.ToString(dIX) + "mm^4";
-                            txtIY.Text = Convert.ToString(dIY) + "mm^4";
+                            else
+                            {
+                                //Übergabe der String Variablen nach Double
+                                dHöhe = Convert.ToDouble(sHöhe);
+                                dBreite = Convert.ToDouble(sBreite);
+                                dLaenge = Convert.ToDouble(sLängeEingabe);
+
+
+                                if (dLaenge <= 0 || dBreite <= 0 || dHöhe <= 0)
+                                {
+                                    MessageBox.Show("Ihre Eingaben müssen größer null sein.");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+
+                                    // Berechnungen in Double Variablen
+                                    //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
+                                    dFlaeche = Math.Round((FlaecheRechteck(dBreite, dHöhe)) * dFaktor, 2);
+                                    dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 2);
+                                    dSchwerpunktX = Math.Round((dBreite / 2) * dFaktor, 2);
+                                    dSchwerpunktY = Math.Round((dBreite / 2) * dFaktor, 2);
+                                    dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);
+                                    dIX = Math.Round((IRechteck(dBreite, dHöhe)) * dFaktor, 2);
+                                    dIY = Math.Round((IRechteck(dHöhe, dBreite)) * dFaktor, 2);
+                                    dGewicht = Math.Round(dVolumen * dDichte * dFaktor / 1000000000, 4);
+                                    dPreis = Math.Round(dGewicht * 1000 * dPreisProG, 4);
+
+                                    // Übergabe Double in String Variablen
+                                    txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
+                                    txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
+                                    txtMasse.Text = Convert.ToString(dGewicht) + "kg";
+                                    txtPreis.Text = Convert.ToString(dPreis) + "€";
+
+                                    txtSchwerpunktX.Text = Convert.ToString(dSchwerpunktX) + "mm";
+                                    txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
+                                    txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
+                                    txtIX.Text = Convert.ToString(dIX) + "mm^4";
+                                    txtIY.Text = Convert.ToString(dIY) + "mm^4";
+                                }
+                            }
                         }
                     }
-
                     break;
 
 
