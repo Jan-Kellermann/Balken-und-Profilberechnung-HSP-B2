@@ -76,10 +76,5 @@ namespace Balken_und_Profilberechnung
             Console.ReadKey();
 
         }
-
-        static void Main(string[] args)
-        {
-            new CatiaControl();
-        }
     }
 }

@@ -15,9 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using INFITF;
-using MECMOD;
-using PARTITF;
 using CATMat;
 
 
@@ -29,7 +26,7 @@ namespace Balken_und_Profilberechnung
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : System.Windows.Window
+    public partial class MainWindow : Window
     {
         CatiaControl CC = new CatiaControl();
 
