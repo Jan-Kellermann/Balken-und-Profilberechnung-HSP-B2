@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using INFITF;
 using MECMOD;
 using PARTITF;
+using CATMat;
 
 
 
@@ -30,7 +31,7 @@ namespace Balken_und_Profilberechnung
     /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
-        CatiaAnbindung CC = new CatiaAnbindung();
+        CatiaControl CC = new CatiaControl();
 
         public MainWindow()
         {
@@ -1174,10 +1175,10 @@ namespace Balken_und_Profilberechnung
 
         }
 
-        private void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
+        public void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
         {
-
-            if (CC.CATIALaeuft().Equals(false))
+            Catia c = new Catia();
+            if (c.CATIALaeuft())
             {
 
                 MessageBox.Show("Catia läuft nicht!");
@@ -1187,6 +1188,3 @@ namespace Balken_und_Profilberechnung
         }
     }
 }
-
-
-

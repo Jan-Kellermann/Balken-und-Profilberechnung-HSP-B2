@@ -4,17 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using INFITF;
+using MECMOD;
+using PARTITF;
+using CATMat;
 
-namespace MinimalCatia
+namespace Balken_und_Profilberechnung
 {
-    class CatiaControl
+    public class CatiaControl
     {
-        CatiaControl()
+        public CatiaControl()
         {
             try
             {
 
-                CatiaConnection cc = new CatiaConnection();
+                Catia cc = new Catia();
 
                 // Finde Catia Prozess
                 if (cc.CATIALaeuft())
@@ -39,7 +54,7 @@ namespace MinimalCatia
                     cc.ErzeugeBalken(300);
                     Console.WriteLine("4");
 
-                    //cc.setMaterial();
+                    cc.setMaterial();
                    
 
                     // cc.Screenshot("test");
@@ -50,7 +65,7 @@ namespace MinimalCatia
                 }
                 else
                 {
-                    Console.WriteLine("Laufende Catia Application nicht gefunden");
+                    Console.WriteLine("Keine laufende Catia Application gefunden");
                 }
             }
             catch (Exception ex)

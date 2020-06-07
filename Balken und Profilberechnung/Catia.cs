@@ -4,11 +4,25 @@ using CATMat;
 using INFITF;
 using MECMOD;
 using PARTITF;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Win32;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 
-namespace MinimalCatia
+namespace Balken_und_Profilberechnung
 {
-    class CatiaConnection
+    public class Catia
     {
         INFITF.Application hsp_catiaApp;
         MECMOD.PartDocument hsp_catiaPart;
@@ -101,19 +115,44 @@ namespace MinimalCatia
             hsp_catiaPart.Part.Update();
         }
 
+        public void setMaterial()
+        {
+
+            String sFilePath = @"C:\Program Files\Dassault Systemes\B28\win_b64\startup\materials\German\Catalog.CATMaterial";
+            MaterialDocument oMaterial_document = (MaterialDocument)hsp_catiaApp.Documents.Open(sFilePath);
+            MaterialFamilies cFamilies_list = oMaterial_document.Families;
+
+            foreach (MaterialFamily mf in cFamilies_list)
+            {
+                Console.WriteLine(mf.get_Name());
+            }
+
+            MaterialFamily myMf = cFamilies_list.Item("Metall");
+            foreach (Material mat in myMf.Materials)
+            {
+                Console.WriteLine(mat.get_Name());
+            }
+
+            Material myStahl = myMf.Materials.Item("Stahl");
+
+            MaterialManager partMatManager = hsp_catiaPart.Part.GetItem("CATMatManagerVBExt") as MaterialManager;
+            
+            short linkMode = 0;
+            partMatManager.ApplyMaterialOnPart(hsp_catiaPart.Part, myStahl, linkMode);
+
+            linkMode = 1;
+            partMatManager.ApplyMaterialOnBody(hsp_catiaPart.Part.MainBody, myStahl, linkMode);
+        }
+
         public void ErzeugeBalken(Double l)
         {
-            // Hauptkoerper in Bearbeitung definieren
             hsp_catiaPart.Part.InWorkObject = hsp_catiaPart.Part.MainBody;
 
-            // Block(Balken) erzeugen
             ShapeFactory catShapeFactory1 = (ShapeFactory)hsp_catiaPart.Part.ShapeFactory;
             Pad catPad1 = catShapeFactory1.AddNewPad(hsp_catiaProfil, l);
 
-            // Block umbenennen
             catPad1.set_Name("Balken");
 
-            // Part aktualisieren
             hsp_catiaPart.Part.Update();
         }
 
