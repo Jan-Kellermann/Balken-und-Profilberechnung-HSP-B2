@@ -28,7 +28,35 @@ namespace Balken_und_Profilberechnung
     /// </summary>
     public partial class MainWindow : Window
     {
-        CatiaControl CC = new CatiaControl();
+        string sBreite;
+        string sHöhe;
+        public double dBreite;
+        public double dHöhe;
+        double dBreiteb1;
+        double dBreiteb2;
+        double dHöheTIProfilh;
+        double dBreiteITProfilB;
+        double dHöheITProfilH;
+        string sBreiteI;
+        string sHöheI;
+        string sBreiteA;
+        string sHöheA;
+        double dBreiteI;
+        double dHöheI;
+        double dBreiteA;
+        double dHöheA;
+        string sDurchmesserEingabe;
+        double dDurchmesser;
+        string sDurchmesserEingabeAussen;
+        string sDurchmesserEingabeInnen;
+        double dDurchmesserAussen;
+        double dDurchmesserInnen;
+        double dIBreiteb1;
+        double dIBreiteb2;
+        double dHöheIIProfilh;
+        double dBreiteIIProfilB;
+        double dHöheIIProfilH;
+
 
         public MainWindow()
         {
@@ -58,6 +86,8 @@ namespace Balken_und_Profilberechnung
         public double dSchwerpunktZ;
         public double dIX;
         public double dIY;
+
+        public int Profil;
 
         public void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> e)
         {
@@ -107,7 +137,7 @@ namespace Balken_und_Profilberechnung
 
                 imTitel.Visibility = Visibility.Hidden;
                 imFigur.Visibility = Visibility.Visible;
-
+              
 
                 imFigur.Source = new BitmapImage(new Uri("Rechteck.PNG", UriKind.Relative));
 
@@ -123,7 +153,7 @@ namespace Balken_und_Profilberechnung
 
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
-
+                Profil = 1;
             }
 
             if (Auswahl == "itmRund")
@@ -178,7 +208,7 @@ namespace Balken_und_Profilberechnung
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
 
-
+                Profil = 3;
             }
 
             if (Auswahl == "itmVierkantrohr")
@@ -232,7 +262,7 @@ namespace Balken_und_Profilberechnung
 
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
-
+                Profil = 2;
 
 
             }
@@ -288,6 +318,7 @@ namespace Balken_und_Profilberechnung
 
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
+                Profil = 4;
 
             }
 
@@ -342,6 +373,7 @@ namespace Balken_und_Profilberechnung
 
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
+                Profil = 5;
             }
 
 
@@ -396,6 +428,7 @@ namespace Balken_und_Profilberechnung
 
                 txtLänge.Text = "";
                 lblStartseite.Visibility = Visibility.Hidden;
+                Profil = 6;
             }
 
 
@@ -519,11 +552,7 @@ namespace Balken_und_Profilberechnung
             {
 
                 case "itmRechteck": //Rechteck
-                    string sBreite;
-                    string sHöhe;
-
-                    double dBreite;
-                    double dHöhe;
+                    
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sBreite = txt2.Text;
@@ -608,15 +637,6 @@ namespace Balken_und_Profilberechnung
                     string sHöheTIProfilhEingabe = txt4.Text;
                     string sBreiteITProfilBEingabe = txt5.Text;
                     string sHöheITProfilHEingabe = txt6.Text;
-
-
-
-
-                    double dBreiteb1;
-                    double dBreiteb2;
-                    double dHöheTIProfilh;
-                    double dBreiteITProfilB;
-                    double dHöheITProfilH;
 
 
                     //Messagebox wenn Feld ist leer
@@ -704,15 +724,7 @@ namespace Balken_und_Profilberechnung
 
 
                 case "itmVierkantrohr":
-                    string sBreiteI;
-                    string sHöheI;
-                    string sBreiteA;
-                    string sHöheA;
-
-                    double dBreiteI;
-                    double dHöheI;
-                    double dBreiteA;
-                    double dHöheA;
+                    
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sBreiteI = txt4.Text;
@@ -804,10 +816,6 @@ namespace Balken_und_Profilberechnung
 
                 case "itmRund":
 
-                    string sDurchmesserEingabe;
-                    double dDurchmesser;
-
-
 
                     //Übergabe der Eingabevariablen in String Variablen
                     sDurchmesserEingabe = txt2.Text;
@@ -874,12 +882,6 @@ namespace Balken_und_Profilberechnung
 
 
                 case "itmRohr": //Rohr
-
-                    string sDurchmesserEingabeAussen;
-                    string sDurchmesserEingabeInnen;
-
-                    double dDurchmesserAussen;
-                    double dDurchmesserInnen;
 
 
                     //Übergabe der Eingabevariablen in String Variablen
@@ -967,14 +969,6 @@ namespace Balken_und_Profilberechnung
                     string sHöheIIProfilhEingabe = txt4.Text;
                     string sBreiteIIProfilBEingabe = txt5.Text;
                     string sHöheIIProfilHEingabe = txt6.Text;
-
-
-                    double dIBreiteb1;
-                    double dIBreiteb2;
-                    double dHöheIIProfilh;
-                    double dBreiteIIProfilB;
-                    double dHöheIIProfilH;
-
 
                     //Messagebox wenn Feld ist leer
                     if (string.IsNullOrEmpty(sIBreiteb1Eingabe) || string.IsNullOrEmpty(sIBreiteb2Eingabe) || string.IsNullOrEmpty(sHöheIIProfilHEingabe) || string.IsNullOrEmpty(sHöheIIProfilhEingabe) || string.IsNullOrEmpty(sBreiteIIProfilBEingabe) || string.IsNullOrEmpty(sLängeEingabe))
@@ -1175,6 +1169,7 @@ namespace Balken_und_Profilberechnung
         public void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
         {
             Catia c = new Catia();
+            new CatiaControl(dBreite/2, dHöhe/2,dLaenge, Profil);
             if (c.CATIALaeuft())
             {
 

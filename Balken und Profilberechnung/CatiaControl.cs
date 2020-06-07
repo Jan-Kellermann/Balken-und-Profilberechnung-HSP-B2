@@ -24,7 +24,10 @@ namespace Balken_und_Profilberechnung
 {
     public class CatiaControl
     {
-        public CatiaControl()
+        private double v;
+        private double dHöhe1;
+
+        public CatiaControl(double dBreite, double dHöhe, double dLaenge ,int Profil)
         {
             try
             {
@@ -34,34 +37,87 @@ namespace Balken_und_Profilberechnung
                 // Finde Catia Prozess
                 if (cc.CATIALaeuft())
                 {
+                    //Rechteck
+                    if (Profil.Equals(1))
+                    {
+                        Console.WriteLine("0");
 
-                    
-                    Console.WriteLine("0");
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+                        Console.WriteLine("1");
 
-                    // Öffne ein neues Part
-                    cc.ErzeugePart();
-                    Console.WriteLine("1");
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                        Console.WriteLine("2");
 
-                    // Erstelle eine Skizze
-                    cc.ErstelleLeereSkizze();
-                    Console.WriteLine("2");
+                        // Generiere ein Profil
+                        cc.ErzeugeProfil(dBreite, dHöhe);
+                        Console.WriteLine("3");
 
-                    // Generiere ein Profil
-                    cc.ErzeugeProfil(20, 10);
-                    Console.WriteLine("3");
+                        // Extrudiere Balken
+                        cc.ErzeugeBalken(dLaenge);
+                        Console.WriteLine("4");
 
-                    // Extrudiere Balken
-                    cc.ErzeugeBalken(300);
-                    Console.WriteLine("4");
+                        cc.setMaterial();
 
-                    cc.setMaterial();
-                   
 
-                    // cc.Screenshot("test");
-                    //cc.openFile();
-                    //cc.changeUserParameter(2);
-                    // cc.FEM();
+                        // cc.Screenshot("test");
+                        //cc.openFile();
+                        //cc.changeUserParameter(2);
+                        // cc.FEM();
+                    }
+                    //Vierkant
+                    if (Profil.Equals(2))
+                    {
+                      
 
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+                        
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                       
+                    }
+                    //Rund
+                    if (Profil.Equals(3))
+                    {
+
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                    }
+                    //Rohr
+                    if (Profil.Equals(4))
+                    {
+
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                    }
+                    //T
+                    if (Profil.Equals(5))
+                    {
+
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                    }
+                    //I
+                    if (Profil.Equals(6))
+                    {
+
+                        // Öffne ein neues Part
+                        cc.ErzeugePart();
+
+                        // Erstelle eine Skizze
+                        cc.ErstelleLeereSkizze();
+                    }
                 }
                 else
                 {
@@ -72,8 +128,6 @@ namespace Balken_und_Profilberechnung
             {
                 MessageBox.Show(ex.Message, "Exception aufgetreten");
             }
-            Console.WriteLine("Fertig - Taste drücken.");
-            Console.ReadKey();
 
         }
     }
