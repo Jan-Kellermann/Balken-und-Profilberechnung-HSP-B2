@@ -84,7 +84,7 @@ namespace Balken_und_Profilberechnung
             hsp_catiaProfil.SetAbsoluteAxisData(arr);
         }
 
-        public void ErzeugeProfil(Double b, Double h)
+        public void ErzeugeProfilRechteck(Double b, Double h)
         {
             hsp_catiaProfil.set_Name("Rechteck");
 
@@ -136,7 +136,7 @@ namespace Balken_und_Profilberechnung
             Material myStahl = myMf.Materials.Item("Stahl");
 
             MaterialManager partMatManager = hsp_catiaPart.Part.GetItem("CATMatManagerVBExt") as MaterialManager;
-            
+
             short linkMode = 0;
             partMatManager.ApplyMaterialOnPart(hsp_catiaPart.Part, myStahl, linkMode);
 
@@ -155,6 +155,37 @@ namespace Balken_und_Profilberechnung
 
             hsp_catiaPart.Part.Update();
         }
+        public void ErzeugeProfilRund(Double Durchmesser)
+        {
+
+            hsp_catiaProfil.set_Name("Rundprofil");
+
+            Factory2D catFactory2D1 = hsp_catiaProfil.OpenEdition();
+
+            // Kreisprofil erzeugen, Punkte
+            catFactory2D1.CreateClosedCircle(0.000000, 0.000000, Durchmesser / 2);
+
+
+            hsp_catiaProfil.CloseEdition();
+            hsp_catiaPart.Part.Update();
+        }
+
+        public void ErzeugeProfilRohr(Double dDurchmesser, double dDurchmesserInnen)
+        {
+            hsp_catiaProfil.set_Name("Rohrprofil");
+
+            Factory2D catFactory2D1 = hsp_catiaProfil.OpenEdition();
+
+            // Kreisprofil erzeugen, Punkte
+            catFactory2D1.CreateClosedCircle(0.000000, 0.000000, dDurchmesser / 2);
+            catFactory2D1.CreateClosedCircle(0.000000, 0.000000, dDurchmesserInnen / 2);
+
+
+            hsp_catiaProfil.CloseEdition();
+            hsp_catiaPart.Part.Update();
+
+        }
+        
 
 
     }

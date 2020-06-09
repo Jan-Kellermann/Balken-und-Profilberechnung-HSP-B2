@@ -27,7 +27,7 @@ namespace Balken_und_Profilberechnung
         private double v;
         private double dHöhe1;
 
-        public CatiaControl(double dBreite, double dHöhe, double dLaenge ,int Profil)
+        public CatiaControl(double dBreite, double dHöhe, double dBreite2, double dHöhe2, double dDurchmesser, double dDurchmesserInnen, double dLaenge, int Profil)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Balken_und_Profilberechnung
                         Console.WriteLine("2");
 
                         // Generiere ein Profil
-                        cc.ErzeugeProfil(dBreite, dHöhe);
+                        cc.ErzeugeProfilRechteck(dBreite, dHöhe);
                         Console.WriteLine("3");
 
                         // Extrudiere Balken
@@ -76,7 +76,12 @@ namespace Balken_und_Profilberechnung
                         
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
-                       
+                        cc.ErzeugeProfilRechteck(dBreite, dHöhe);
+                        cc.ErzeugeProfilRechteck(dBreite2, dHöhe2);
+
+                        cc.ErzeugeBalken(dLaenge);
+
+                        cc.setMaterial();
                     }
                     //Rund
                     if (Profil.Equals(3))
@@ -87,6 +92,14 @@ namespace Balken_und_Profilberechnung
 
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
+
+                        // Generiere ein Profil
+                        cc.ErzeugeProfilRund(dDurchmesser);
+
+                        // Extrudiere Balken
+                        cc.ErzeugeBalken(dLaenge);
+
+                        cc.setMaterial();
                     }
                     //Rohr
                     if (Profil.Equals(4))
@@ -97,7 +110,19 @@ namespace Balken_und_Profilberechnung
 
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
+
+                        // Generiere ein Profil
+                        cc.ErzeugeProfilRohr(dDurchmesser, dDurchmesserInnen);
+
+
+                        // Extrudiere Balken
+                        cc.ErzeugeBalken(dLaenge);
+
+
+                        cc.setMaterial();
                     }
+
+
                     //T
                     if (Profil.Equals(5))
                     {
