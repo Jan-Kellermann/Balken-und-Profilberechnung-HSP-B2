@@ -1169,7 +1169,7 @@ namespace Balken_und_Profilberechnung
         public void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
         {
             Catia c = new Catia();
-            new CatiaControl(dBreite / 2, dHöhe / 2, dBreiteI / 2, dHöheI / 2, dDurchmesser, dDurchmesserInnen, dLaenge, Profil);
+            new CatiaControl(dBreite / 2, dHöhe / 2, dBreiteI / 2, dHöheI / 2, dBreiteA/2, dHöheA/2, dDurchmesser, dDurchmesserAussen, dDurchmesserInnen, dLaenge, Profil);
             if (c.CATIALaeuft())
             {
 

@@ -27,7 +27,7 @@ namespace Balken_und_Profilberechnung
         private double v;
         private double dHöhe1;
 
-        public CatiaControl(double dBreite, double dHöhe, double dBreite2, double dHöhe2, double dDurchmesser, double dDurchmesserInnen, double dLaenge, int Profil)
+        public CatiaControl(double dBreite, double dHöhe, double dBreiteI, double dHöheI, double dBreiteA, double dHöheA, double dDurchmesser, double dDurchmesserAussen, double dDurchmesserInnen, double dLaenge, int Profil)
         {
             try
             {
@@ -70,14 +70,12 @@ namespace Balken_und_Profilberechnung
                     if (Profil.Equals(2))
                     {
                       
-
                         // Öffne ein neues Part
                         cc.ErzeugePart();
                         
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
-                        cc.ErzeugeProfilRechteck(dBreite, dHöhe);
-                        cc.ErzeugeProfilRechteck(dBreite2, dHöhe2);
+                        cc.ErzeugeProfilVierkant(dBreiteI, dHöheI, dBreiteA, dHöheA);
 
                         cc.ErzeugeBalken(dLaenge);
 
@@ -112,7 +110,7 @@ namespace Balken_und_Profilberechnung
                         cc.ErstelleLeereSkizze();
 
                         // Generiere ein Profil
-                        cc.ErzeugeProfilRohr(dDurchmesser, dDurchmesserInnen);
+                        cc.ErzeugeProfilRohr(dDurchmesserAussen, dDurchmesserInnen);
 
 
                         // Extrudiere Balken

@@ -170,22 +170,19 @@ namespace Balken_und_Profilberechnung
             hsp_catiaPart.Part.Update();
         }
 
-        public void ErzeugeProfilRohr(Double dDurchmesser, double dDurchmesserInnen)
+        public void ErzeugeProfilRohr(Double dDurchmesserAussen, double dDurchmesserInnen)
         {
-            hsp_catiaProfil.set_Name("Rohrprofil");
-
-            Factory2D catFactory2D1 = hsp_catiaProfil.OpenEdition();
-
-            // Kreisprofil erzeugen, Punkte
-            catFactory2D1.CreateClosedCircle(0.000000, 0.000000, dDurchmesser / 2);
-            catFactory2D1.CreateClosedCircle(0.000000, 0.000000, dDurchmesserInnen / 2);
-
-
-            hsp_catiaProfil.CloseEdition();
-            hsp_catiaPart.Part.Update();
+            ErzeugeProfilRund(dDurchmesserAussen);
+            ErzeugeProfilRund(dDurchmesserInnen);
 
         }
-        
+        public void ErzeugeProfilVierkant(Double dBreiteI, double dHöheI, double dBreiteA, double dHöheA)
+        {
+            ErzeugeProfilRechteck(dBreiteI,dHöheI);
+            ErzeugeProfilRechteck(dBreiteA,dHöheA);
+
+        }
+
 
 
     }
