@@ -514,8 +514,8 @@ namespace Balken_und_Profilberechnung
                     dPreisProG = 0.004;
                     MatAuswahl = 4;
                     break;
-                case "System.Windows.Controls.ComboBoxItem: Weißer Zwerg":
-                    dDichte = 10000000000;
+                case "System.Windows.Controls.ComboBoxItem: Wolfram":
+                    dDichte = 19300;
                     MatAuswahl = 5;
                     dPreisProG = 0.1;
                     break;

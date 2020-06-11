@@ -46,7 +46,7 @@
             <ComboBoxItem>Stahl</ComboBoxItem>
             <ComboBoxItem>Aluminium</ComboBoxItem>
             <ComboBoxItem>Kunststoff</ComboBoxItem>
-            <ComboBoxItem>Weißer Zwerg</ComboBoxItem>
+            <ComboBoxItem>Wolfram</ComboBoxItem>
         </ComboBox>
 
         <Label x:Name="lblEinheit" Content="Einheit:" HorizontalAlignment="Left" Margin="158,96,0,0" VerticalAlignment="Top" Height="31" Visibility="Hidden"/>
