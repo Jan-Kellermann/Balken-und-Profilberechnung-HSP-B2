@@ -56,6 +56,7 @@ namespace Balken_und_Profilberechnung
         double dHöheIIProfilh;
         double dBreiteIIProfilB;
         double dHöheIIProfilH;
+        public int MatAuswahl;
 
 
         public MainWindow()
@@ -478,11 +479,11 @@ namespace Balken_und_Profilberechnung
         //Start der Berechnung***************************************************************************
 
 
-        private void btnRechne_Click(object sender, RoutedEventArgs e)
+        public void btnRechne_Click(object sender, RoutedEventArgs e)
         {
 
             //Auslesen der Combo Boxen
-
+            
             string Material = cboMaterial.SelectedItem.ToString();
 
             //MessageBox.Show(Material);
@@ -493,29 +494,31 @@ namespace Balken_und_Profilberechnung
                 case "System.Windows.Controls.ComboBoxItem: Holz":
                     dDichte = 650;
                     dPreisProG = 0.001;
+                    MatAuswahl = 1;
                     break;
-
 
                 case "System.Windows.Controls.ComboBoxItem: Stahl":
                     dDichte = 7874;
                     dPreisProG = 0.002;
+                    MatAuswahl = 2;
                     break;
 
                 case "System.Windows.Controls.ComboBoxItem: Aluminium":
                     dDichte = 2700;
                     dPreisProG = 0.006;
+                    MatAuswahl = 3;
                     break;
 
                 case "System.Windows.Controls.ComboBoxItem: Kunststoff":
                     dDichte = 900;
                     dPreisProG = 0.004;
+                    MatAuswahl = 4;
                     break;
                 case "System.Windows.Controls.ComboBoxItem: Weißer Zwerg":
                     dDichte = 10000000000;
+                    MatAuswahl = 5;
                     dPreisProG = 0.1;
                     break;
-
-
             }
 
             string Einheit = cboEinheit.SelectedItem.ToString();
@@ -1169,7 +1172,7 @@ namespace Balken_und_Profilberechnung
         public void lbl_CatiaStart_Click(object sender, RoutedEventArgs e)
         {
             Catia c = new Catia();
-            new CatiaControl(dBreite / 2, dHöhe / 2, dBreiteI / 2, dHöheI / 2, dBreiteA/2, dHöheA/2, dDurchmesser, dDurchmesserAussen, dDurchmesserInnen, dLaenge, Profil);
+            new CatiaControl(dBreite / 2, dHöhe / 2, dBreiteI / 2, dHöheI / 2, dBreiteA/2, dHöheA/2, dDurchmesser, dDurchmesserAussen, dDurchmesserInnen, dBreiteb1, dBreiteb2, dHöheTIProfilh, dBreiteITProfilB, dHöheITProfilH, dHöheIIProfilh, dBreiteIIProfilB, dHöheIIProfilH, dLaenge, Profil, MatAuswahl);
             if (!(c.CATIALaeuft()))
             {
 

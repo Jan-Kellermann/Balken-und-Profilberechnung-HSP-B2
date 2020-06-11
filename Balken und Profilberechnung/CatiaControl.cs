@@ -27,7 +27,7 @@ namespace Balken_und_Profilberechnung
         private double v;
         private double dHöhe1;
 
-        public CatiaControl(double dBreite, double dHöhe, double dBreiteI, double dHöheI, double dBreiteA, double dHöheA, double dDurchmesser, double dDurchmesserAussen, double dDurchmesserInnen, double dLaenge, int Profil)
+        public CatiaControl(double dBreite, double dHöhe, double dBreiteI, double dHöheI, double dBreiteA, double dHöheA, double dDurchmesser, double dDurchmesserAussen, double dDurchmesserInnen, double dBreiteb1, double dBreiteb2, double dHöheTIProfilh, double dBreiteITProfilB, double dHöheITProfilH, double dHöheIIProfilh, double dBreiteIIProfilB, double dHöheIIProfilH, double dLaenge, int Profil, int MatAuswahl)
         {
             try
             {
@@ -58,7 +58,8 @@ namespace Balken_und_Profilberechnung
                         cc.ErzeugeBalken(dLaenge);
                         Console.WriteLine("4");
 
-                        cc.setMaterial();
+                        cc.setMaterial(MatAuswahl);
+
 
 
                         // cc.Screenshot("test");
@@ -79,7 +80,7 @@ namespace Balken_und_Profilberechnung
 
                         cc.ErzeugeBalken(dLaenge);
 
-                        cc.setMaterial();
+                        cc.setMaterial(MatAuswahl);
                     }
                     //Rund
                     if (Profil.Equals(3))
@@ -97,7 +98,7 @@ namespace Balken_und_Profilberechnung
                         // Extrudiere Balken
                         cc.ErzeugeBalken(dLaenge);
 
-                        cc.setMaterial();
+                        cc.setMaterial(MatAuswahl);
                     }
                     //Rohr
                     if (Profil.Equals(4))
@@ -117,7 +118,7 @@ namespace Balken_und_Profilberechnung
                         cc.ErzeugeBalken(dLaenge);
 
 
-                        cc.setMaterial();
+                        cc.setMaterial(MatAuswahl);
                     }
 
 
@@ -130,7 +131,15 @@ namespace Balken_und_Profilberechnung
 
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
+
+                        cc.ErzeugeTProfil(dBreiteb1, dBreiteb2, dHöheTIProfilh, dBreiteITProfilB, dHöheITProfilH);
+
+                        cc.ErzeugeBalken(dLaenge);
+
+                        cc.setMaterial(MatAuswahl);
                     }
+
+
                     //I
                     if (Profil.Equals(6))
                     {
@@ -140,6 +149,12 @@ namespace Balken_und_Profilberechnung
 
                         // Erstelle eine Skizze
                         cc.ErstelleLeereSkizze();
+
+                        cc.ErzeugeIProfil(dBreiteb1, dBreiteb2, dHöheIIProfilh, dBreiteIIProfilB, dHöheIIProfilH);
+
+                        cc.ErzeugeBalken(dLaenge);
+
+                        cc.setMaterial(MatAuswahl);
                     }
                 }
                 else
