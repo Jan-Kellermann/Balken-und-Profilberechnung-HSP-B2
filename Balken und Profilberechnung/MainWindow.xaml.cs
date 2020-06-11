@@ -1170,7 +1170,7 @@ namespace Balken_und_Profilberechnung
         {
             Catia c = new Catia();
             new CatiaControl(dBreite / 2, dHöhe / 2, dBreiteI / 2, dHöheI / 2, dBreiteA/2, dHöheA/2, dDurchmesser, dDurchmesserAussen, dDurchmesserInnen, dLaenge, Profil);
-            if (c.CATIALaeuft())
+            if (!(c.CATIALaeuft()))
             {
 
                 MessageBox.Show("Catia läuft nicht!");
