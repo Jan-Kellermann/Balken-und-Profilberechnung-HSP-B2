@@ -866,7 +866,7 @@ namespace Balken_und_Profilberechnung
                                 txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
                                 txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
                                 txtMasse.Text = Convert.ToString(dGewicht) + "kg";
-                                txtPreis.Text = Convert.ToString(dPreisProG) + "€";
+                                txtPreis.Text = Convert.ToString(dPreis) + "€";
                                 txtSchwerpunktX.Text = Convert.ToString(this.dSchwerpunktX) + "mm";
                                 txtSchwerpunktY.Text = Convert.ToString(dSchwerpunktY) + "mm";
                                 txtSchwerpunktZ.Text = Convert.ToString(dSchwerpunktZ) + "mm";
