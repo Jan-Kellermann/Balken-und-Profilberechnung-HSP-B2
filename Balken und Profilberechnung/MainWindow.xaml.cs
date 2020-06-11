@@ -499,25 +499,25 @@ namespace Balken_und_Profilberechnung
 
                 case "System.Windows.Controls.ComboBoxItem: Stahl":
                     dDichte = 7874;
-                    dPreisProG = 0.002;
+                    dPreisProG = 0.003;
                     MatAuswahl = 2;
                     break;
 
                 case "System.Windows.Controls.ComboBoxItem: Aluminium":
                     dDichte = 2700;
-                    dPreisProG = 0.006;
+                    dPreisProG = 0.0016;
                     MatAuswahl = 3;
                     break;
 
                 case "System.Windows.Controls.ComboBoxItem: Kunststoff":
                     dDichte = 900;
-                    dPreisProG = 0.004;
+                    dPreisProG = 0.0004;
                     MatAuswahl = 4;
                     break;
-                case "System.Windows.Controls.ComboBoxItem: Wolfram":
-                    dDichte = 19300;
+                case "System.Windows.Controls.ComboBoxItem: Titan":
+                    dDichte = 4500;
+                    dPreisProG = 0.005;
                     MatAuswahl = 5;
-                    dPreisProG = 0.1;
                     break;
             }
 
@@ -601,7 +601,6 @@ namespace Balken_und_Profilberechnung
 
                                 else
                                 {
-                                    MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
 
                                     // Berechnungen in Double Variablen
                                     //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
@@ -784,18 +783,17 @@ namespace Balken_und_Profilberechnung
 
                                 else
                                 {
-                                    MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
 
                                     // Berechnungen in Double Variablen
                                     //Math.Round(double, 2) Rundet auf zwei Stellen hinterm Komma
-                                    dFlaeche = Math.Round((FlaecheRechteck(dBreiteA - dBreiteI, dHöheA - dHöheI)) * dFaktor, 2);
+                                    dFlaeche = Math.Round(FlaecheRechteck(dBreiteA - dBreiteI, dHöheA - dHöheI) * dFaktor, 2);
                                     dVolumen = Math.Round(dFlaeche * dLaenge * dFaktor, 2);
                                     dSchwerpunktX = Math.Round((dBreiteA - dBreiteI / 2) * dFaktor, 2);
                                     dSchwerpunktY = Math.Round((dBreiteA - dBreiteI / 2) * dFaktor, 2);
                                     dSchwerpunktZ = Math.Round((dLaenge / 2) * dFaktor, 2);
                                     dIX = Math.Round((IRechteck(dBreiteA - dBreiteI, dHöheA - dHöheI)) * dFaktor, 2);
                                     dIY = Math.Round((IRechteck(dHöheA - dHöheI, dBreiteA - dBreiteI)) * dFaktor, 2);
-                                    dGewicht = Math.Round(dVolumen / 100000000 * dDichte * dFaktor, 4);
+                                    dGewicht = Math.Round(dVolumen / 1000000000 * dDichte * dFaktor, 4);
                                     dPreis = Math.Round(dGewicht * 1000 * dPreisProG, 4);
 
                                     // Übergabe Double in String Variablen
@@ -846,7 +844,6 @@ namespace Balken_und_Profilberechnung
 
                             else
                             {
-                                MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
 
                                 //Übergabe der String Variablen nach Double
                                 dDurchmesser = Convert.ToDouble(sDurchmesserEingabe);
@@ -862,7 +859,7 @@ namespace Balken_und_Profilberechnung
                                 dSchwerpunktZ = Math.Round(dLaenge / 2 * dFaktor, 2);
                                 dIX = Math.Round(IKreis(dDurchmesser * dFaktor), 2);
                                 dIY = Math.Round(IKreis(dDurchmesser * dFaktor), 2);
-                                dGewicht = Math.Round((dVolumen / 100000000) * dDichte, 4);
+                                dGewicht = Math.Round((dVolumen / 1000000000) * dDichte * dFaktor, 4);
                                 dPreis = Math.Round(dGewicht * 1000 * dPreisProG, 4);
 
                                 // Übergabe Double in String Variablen
@@ -914,7 +911,7 @@ namespace Balken_und_Profilberechnung
 
                             else
                             {
-                                MessageBox.Show("Dichte:  " + dDichte.ToString() + "  kg/m^3");
+
                                 //Übergabe der String Variablen nach Double
                                 dDurchmesserInnen = Convert.ToDouble(sDurchmesserEingabeInnen);
                                 dDurchmesserAussen = Convert.ToDouble(sDurchmesserEingabeAussen);

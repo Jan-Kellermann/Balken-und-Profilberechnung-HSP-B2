@@ -189,13 +189,13 @@ namespace Balken_und_Profilberechnung
 
             if (MatAuswahl.Equals(4))
             {
-                MaterialFamily myMf = cFamilies_list.Item("Andere");
-                foreach (Material mat in myMf.Materials)
+                MaterialFamily myMfp = cFamilies_list.Item("Andere");
+                foreach (Material mat in myMfp.Materials)
                 {
                     Console.WriteLine(mat.get_Name());
                 }
 
-                Material myPlastik = myMf.Materials.Item("Plastik");
+                Material myPlastik = myMfp.Materials.Item("Plastik");
 
                 MaterialManager partMatManager = hsp_catiaPart.Part.GetItem("CATMatManagerVBExt") as MaterialManager;
 
@@ -209,21 +209,21 @@ namespace Balken_und_Profilberechnung
 
             if (MatAuswahl.Equals(5))
             {
-                MaterialFamily myMf = cFamilies_list.Item("Andere");
+                MaterialFamily myMf = cFamilies_list.Item("Metall");
                 foreach (Material mat in myMf.Materials)
                 {
                     Console.WriteLine(mat.get_Name());
                 }
 
-                Material myPlastik = myMf.Materials.Item("Plastik");
+                Material myTitan = myMf.Materials.Item("Titan");
 
                 MaterialManager partMatManager = hsp_catiaPart.Part.GetItem("CATMatManagerVBExt") as MaterialManager;
 
                 short linkMode = 0;
-                partMatManager.ApplyMaterialOnPart(hsp_catiaPart.Part, myPlastik, linkMode);
+                partMatManager.ApplyMaterialOnPart(hsp_catiaPart.Part, myTitan, linkMode);
 
                 linkMode = 1;
-                partMatManager.ApplyMaterialOnBody(hsp_catiaPart.Part.MainBody, myPlastik, linkMode);
+                partMatManager.ApplyMaterialOnBody(hsp_catiaPart.Part.MainBody, myTitan, linkMode);
 
             }
         }
