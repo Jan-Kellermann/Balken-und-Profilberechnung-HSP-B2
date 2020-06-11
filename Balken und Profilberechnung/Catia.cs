@@ -278,7 +278,6 @@ namespace Balken_und_Profilberechnung
 
             // T-Profil erzeugen
 
-            // erst die Punkte
             Point2D catPoint2D1 = catFactory2D1.CreatePoint(0, dHöheITProfilH);
             Point2D catPoint2D2 = catFactory2D1.CreatePoint(0, dHöheITProfilH - dHöheTIProfilh);
             Point2D catPoint2D3 = catFactory2D1.CreatePoint((dBreiteITProfilB / 2) - (dBreiteb1 / 2), dHöheITProfilH - dHöheTIProfilh);
@@ -288,7 +287,6 @@ namespace Balken_und_Profilberechnung
             Point2D catPoint2D7 = catFactory2D1.CreatePoint(dBreiteITProfilB, dHöheITProfilH - dHöheTIProfilh);
             Point2D catPoint2D8 = catFactory2D1.CreatePoint(dBreiteITProfilB, dHöheITProfilH);
 
-            // dann die Linien
             Line2D catLine2D1 = catFactory2D1.CreateLine(0, dHöheITProfilH, 0, dHöheITProfilH - dHöheTIProfilh);
             catLine2D1.StartPoint = catPoint2D1;
             catLine2D1.EndPoint = catPoint2D2;
@@ -348,7 +346,6 @@ namespace Balken_und_Profilberechnung
 
             // I-Profil erzeugen
 
-            // erst die Punkte
             Point2D catPoint2D1 = catFactory2D1.CreatePoint(-HalbeBreite, HalbeHoehe);
             Point2D catPoint2D2 = catFactory2D1.CreatePoint(HalbeBreite, HalbeHoehe);
             Point2D catPoint2D3 = catFactory2D1.CreatePoint(HalbeBreite, Steghoehe);
@@ -363,7 +360,6 @@ namespace Balken_und_Profilberechnung
             Point2D catPoint2D12 = catFactory2D1.CreatePoint(-HalbeBreite, Steghoehe);
 
 
-            // dann die Linien
             Line2D catLine2D1 = catFactory2D1.CreateLine(-HalbeBreite, HalbeHoehe, HalbeBreite, HalbeHoehe);
             catLine2D1.StartPoint = catPoint2D1;
             catLine2D1.EndPoint = catPoint2D2;

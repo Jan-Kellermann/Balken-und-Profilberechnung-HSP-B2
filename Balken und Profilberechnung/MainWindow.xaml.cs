@@ -939,9 +939,8 @@ namespace Balken_und_Profilberechnung
                                     dSchwerpunktZ = Math.Round(dLaenge / 2, 2);
                                     dIX = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen), 2);
                                     dIY = Math.Round(IRohr(dDurchmesserAussen, dDurchmesserInnen), 2);
-                                    dGewicht = Math.Round(dVolumen / 1000000000 * dDichte, 4);
+                                    dGewicht = Math.Round(dVolumen / 1000000000 * dDichte * dFaktor, 4);
                                     dPreis = Math.Round(dGewicht * 1000 * dPreisProG, 4);
-
                                     // Übergabe Double in String Variablen
                                     txtVolumen.Text = Convert.ToString(dVolumen) + "mm³";
                                     txtFlaeche.Text = Convert.ToString(dFlaeche) + "mm²";
